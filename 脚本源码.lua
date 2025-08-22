@@ -7,8 +7,8 @@ local window = library:new("JAY脚本")
     bin:Label("作者JAY")    
     bin:Label("QQ群:")
     bin:Label("免费脚本，禁止倒卖")
-    bin:Label("感谢WM.牢汤.风之子一路上的支持")
-    bin:Label("也感谢其他赞助商的支持")
+    bin:Label("感谢使用")
+    bin:Label("欢迎使用")
 
     local credits = creds:section("Ul设置", true)
 
