@@ -73,17 +73,6 @@ local Window = WindUI:CreateWindow({
     ScrollBarEnabled = true, -- enables scrollbar
     -- Background = "rbxassetid://13511292247", -- rbxassetid only
 
-    -- remove it below if you don't want to use the key system in your script.
-    KeySystem = { -- <- keysystem enabled
-        Key = { "10086917891917878" },
-        Note = "Example Key System. \n\n密钥找群主买",
-        -- Thumbnail = {
-        --     Image = "rbxassetid://18220445082", -- rbxassetid only
-        --     Title = "Thumbnail"
-        -- },
-        URL = "link-to-linkvertise-or-discord-or-idk", -- remove this if the key is not obtained from the link.
-        SaveKey = true, -- saves key : optional
-    },
 })
 
 
@@ -187,7 +176,7 @@ Tabs.ButtonTab:Button({
 
 local destroybtn
 destroybtn = Tabs.ButtonTab:Button({
-    Title = "Click to destroy me!",
+    Title = "点击即可删除",
     Callback = function() destroybtn:Destroy() end,
 })
 
