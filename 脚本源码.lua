@@ -5,9 +5,9 @@ local window = library:new("JAY脚本")
     local creds = window:Tab("关于", "6031097229")
     local bin = creds:section("信息", true)
     bin:Label("作者JAY")    
-    bin:Label("QQ群:")
+    bin:Label("QQ群:658751343")
     bin:Label("免费脚本，禁止倒卖")
-    bin:Label("感谢使用")
+    bin:Label("感谢WM.风之子.牢汤的支技")
     bin:Label("欢迎使用")
 
     local credits = creds:section("Ul设置", true)
@@ -117,40 +117,40 @@ credits:Toggle("团队检测", "TeamCheckToggle", false, function(state)
     teamCheckEnabled = state
 end)
 
-    local credits = creds:section("娱乐功能", true)
+    local credits = creds:section("玩家", true)
     credits:Button("伪VR", function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty45.lua"))()
+end)
+
+credits:Button("飞行v3", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay907692/Jay/8b94c47bd5969608438fa1ee57f34b1350789caa/飞行脚本", true))()
 end)
 
     local creds = window:Tab("脚本区", "6031097229")
     local credits = creds:section("最强战场", true)
 
 credits:Button("英文无限侧翻", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay907692/Jay/14a46d9fe32a99b38db472919199398754699419/Jay", true))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/10tempest01/tempest-hub/refs/heads/main/Launcher.lua"))()
 end)
 
-credits:Button("中文最强战场", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
-end)
-
-credits:Button("英文JAY1", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+credits:Button("英文JAY自动格挡", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Cyborg883/TSB/refs/heads/main/CombatGui"))()
 end)
 
 credits:Button("英文丢垃圾桶", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/shenqin/refs/heads/main/V1.0.0.txt"))()
 end)
 
 local credits = creds:section("doors", true)
 
 credits:Button("JAY中文doors", function()
-   loadstring(game:HttpGet("https://rscripts.net/raw/not-patched-infinite-money-money-farm-open-shop_1753743540999_gqxO4z8nzH.txt"))()
+   loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\54\53\84\119\84\56\106\97"))()
 end)
 
 local credits = creds:section("生存99夜", true)
 
 credits:Button("二狗子", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/shenqin/refs/heads/main/99day.lua"))()
 end)
 
 credits:Button("英文99day", function()
@@ -160,24 +160,24 @@ end)
 local credits = creds:section("墨水游戏", true)
 
 credits:Button("AX英文", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/TexRBLX/Roblox-stuff/refs/heads/main/ink-game/script.lua"))()
 end)
 
 credits:Button("JAY超好用英文", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua"))()
 end)
 
 local credits = creds:section("死铁轨", true)
-credits:Button("刷债券", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+credits:Button("超好用刷债券", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
 end)
 
-credits:Button("好用刷债券", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+credits:Button("刷债券2", function()
+   --[[by 退休不退休]]QUN = "160369111"TX = "死铁轨刷债券V3"script = "死铁轨免费刷债券"loadstring(game:HttpGet("https://raw.githubusercontent.com/JsYb666/Item/refs/heads/main/%E5%88%B7%E5%80%BA%E5%88%B8"))()
 end)
 
 credits:Button("死铁轨英文", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/DEADRAILS.github.io/refs/heads/main/mainringta.lua"))()
 end)
 
 local credits = creds:section("战争大亨", true)
@@ -186,27 +186,27 @@ credits:Button("中文脚本", function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/战争大亨.lua"))()
 end)
 
-local credits = creds:section("为了100000美元，而跳绳", true)
+local credits = creds:section("GB", true)
 
-credits:Button("free", function()
-   loadstring(game:HttpGet("https://rawscripts.net/raw/The-dollar1000000-Jump-Rope-Keyless-Slap-All-Slap-Aura-Free-Gamepass-add-remove-money-47134"))()
+credits:Button("JAY中文", function()
+   loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\34\104\116\116\112\115\58\47\47\102\114\101\101\110\111\116\101\46\98\105\122\47\114\97\119\47\109\117\122\110\104\101\114\104\114\117\34\41\44\116\114\117\101\41\41\40\41\10")()
 end)
 
 
 local credits = creds:section("Ohio", true)
 
 credits:Button("XAHUB", function()
-   loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/705e7fe7aa288f0fe86900cedb1119b1.lua"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/%E4%BF%84%E4%BA%A5%E4%BF%84%E5%B7%9E.lua"))()
 end)
 
 credits:Button("SNOW", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/canxiaoxue666/String/refs/heads/main/OhioScript"))()
 end)
 
 local credits = creds:section("自然灾害", true)
 
 credits:Button("黑洞V6", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/QQ-9-2-8-9-50173/refs/heads/main/newsqnb.lua"))()
+   loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Super-ring-Parts-V6-28581"))()
 end)
 
 local credits = creds:section("刀刃球", true)
@@ -218,11 +218,11 @@ end)
 local credits = creds:section("被遗弃", true)
 
 credits:Button("英文Jay卡密在群公告", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/BobJunior1/ForsakenBoi/refs/heads/main/B0bbyHub"))()
 end)
 
 credits:Button("NOL", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Syndromehsh/BETA2/refs/heads/main/NOL"))()
 end)
 
    local creds = window:Tab("脚本区", "6031097229")
