@@ -154,7 +154,7 @@ credits:Button("二狗子", function()
 end)
 
 credits:Button("英文99day", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua")(()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
 end)
 
 local credits = creds:section("墨水游戏", true)
@@ -186,7 +186,7 @@ credits:Button("中文脚本", function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/战争大亨.lua"))()
 end)
 
-local credits = creds:section("糖心vlog", true)
+local credits = creds:section("为了100000美元，而跳绳", true)
 
 credits:Button("free", function()
    loadstring(game:HttpGet("https://rawscripts.net/raw/The-dollar1000000-Jump-Rope-Keyless-Slap-All-Slap-Aura-Free-Gamepass-add-remove-money-47134"))()
@@ -225,11 +225,100 @@ credits:Button("NOL", function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/99-Nights-in-the-Forest/refs/heads/main/99%20Nights%20in%20the%20Forest"))()
 end)
 
-   local creds = window:Tab("力量传奇", "6031097229")
-   local credits = creds:section("力量传奇", true)
+   local creds = window:Tab("脚本区", "6031097229")
+
+   local credits = creds:section("超级大力士模拟器", true)
    
-credits:Button("英文99day", function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
+credits:Button("传送到开始区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(85.86943817138672, 11.751949310302734, -198.07127380371094)
+end)
+    
+credits:Button("传送到健身区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(93.60747528076172, 11.751947402954102, -10.266206741333008)
+end)
+    
+credits:Button("传送到食物区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(78.86384582519531, 11.751947402954102, 228.9690399169922)
+end)
+    
+credits:Button("传送到街机区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(88.99887084960938, 11.751949310302734, 502.90997314453125)
+end)
+    
+credits:Button("传送到农场区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(85.6707763671875, 11.751947402954102, 788.5997314453125)
+end)
+    
+credits:Button("传送到城堡区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84.87281036376953, 11.84177017211914, 1139.7509765625)
+end)
+    
+credits:Button("传送到蒸汽朋克区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(92.63227081298828, 11.841767311096191, 1692.7890625)
+end)
+    
+credits:Button("传送到迪斯科区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(98.69613647460938, 16.015085220336914, 2505.213134765625)
+end)
+    
+credits:Button("传送到太空区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(88.42948150634766, 11.841769218444824, 3425.941650390625)
+end)
+    
+credits:Button("传送到糖果区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(63.55805969238281, 11.841663360595703, 4340.69921875)
+end)
+    
+credits:Button("送到实验室区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(78.00920867919922, 11.841663360595703, 5226.60205078125)
+end)
+    
+credits:Button("传送到热带区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(80.26090240478516, 12.0902681350708, 6016.16552734375)
+end)
+    
+credits:Button("传送到恐龙区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(38.4753303527832, 25.801530838012695, 6937.779296875)
+end)
+    
+credits:Button("传送到复古区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(99.81867218017578, 12.89099407196045, 7901.74755859375)
+end)
+    
+credits:Button("传送到冬季区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(63.47243881225586, 11.841662406921387, 8983.810546875)
+end)
+    
+credits:Button("传送到深海区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(105.36250305175781, 26.44820213317871, 9970.0849609375)
+end)
+    
+credits:Button("传送到狂野西部区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(68.69414520263672, 15.108586311340332, 10938.654296875)
+end)
+    
+credits:Button("传送到豪华公寓区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(86.75145721435547, 11.313281059265137, 12130.349609375)
+end)
+    
+credits:Button("传送到宝剑战斗区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(111.25597381591797, 11.408829689025879, 12945.57421875)
+end)
+    
+credits:Button("传送到童话区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(121.14932250976562, 11.313281059265137, 14034.50390625)
+end)
+    
+credits:Button("传送到桃花区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(108.2142333984375, 11.813281059265137, 15131.861328125)
+end)
+    
+credits:Button("传送到厨房区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(135.78338623046875, 21.76291847229004, 16204.9755859375)
+end)
+    
+credits:Button("传送到下水道区域", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(47.36086654663086, 12.25178050994873, 17656.04296875)
 end)
 
    local credits = creds:section("钓鱼模拟器", true)
@@ -312,21 +401,6 @@ credits:Toggle("自动钓鱼","text",false,function(bool)
             bBobber = game.Players.LocalPlayer.Character:WaitForChild(rodName).Bobbers.Bobber.Fish.Changed:Connect(
                 function(fishVal)
                     if fishVal ~= nil then
-                        --if not legendToggle then
-                            game.Workspace:WaitForChild(tostring(fishVal))
-                            wait()
-                            game.ReplicatedStorage.CloudClientResources.Communication.Events.FishedDone:FireServer()
-                            wait()
-                            game.ReplicatedStorage.CloudClientResources.Communication.Events.ResetFishingRod:FireServer()
-                            wait()
-                        --[[else
-                            if game.Workspace:WaitForChild(tostring(fishVal)).RarityLevel.Value >= 5 then
-                                game.ReplicatedStorage.CloudClientResources.Communication.Events.FishedDone:FireServer()
-                                wait()
-                                game.ReplicatedStorage.CloudClientResources.Communication.Events.ResetFishingRod:FireServer()
-                                wait()
-                            end                                                                                                 
-                        end                                                                                                        --]]
 					end
 					if game.Players.LocalPlayer.Character:WaitForChild(rodName).Bobbers.Bobber:FindFirstChild("FishWeld") then
 						for p, q in pairs(game.Players.LocalPlayer.Character:WaitForChild(rodName).Bobbers.Bobber:GetChildren()) do
