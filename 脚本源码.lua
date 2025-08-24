@@ -6,14 +6,14 @@ StarterGui:SetCore("SendNotification", {
     Icon = "rbxassetid://96053471887671",
     Duration = 3
 })
-local window = library:new("JAY脚本")
+local window = library:new("JAY脚本1.6")
 ----------------------------------------------------------------------------------------------------------------------------------------
     local creds = window:Tab("关于", "6031097229")
     local bin = creds:section("信息", true)
     bin:Label("作者JAY")    
     bin:Label("QQ群:658751343")
     bin:Label("免费脚本，禁止倒卖")
-    bin:Label("感谢WM.风之子.牢汤的支技")
+    bin:Label("感谢WM.风之子.牢汤的支持")
     bin:Label("欢迎使用")
 
     local credits = creds:section("Ul设置", true)
