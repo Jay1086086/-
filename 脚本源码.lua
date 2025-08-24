@@ -6,7 +6,7 @@ StarterGui:SetCore("SendNotification", {
     Icon = "rbxassetid://96053471887671",
     Duration = 3
 })
-local window = library:new("JAY脚本1.6")
+local window = library:new("JAY脚本1.65")
 ----------------------------------------------------------------------------------------------------------------------------------------
     local creds = window:Tab("关于", "6031097229")
     local bin = creds:section("信息", true)
@@ -132,6 +132,10 @@ credits:Button("飞行v3", function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay907692/Jay/8b94c47bd5969608438fa1ee57f34b1350789caa/飞行脚本", true))()
 end)
 
+credits:Button("egor", function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/GBmWn4eZ", true))()
+end)
+
     local creds = window:Tab("脚本区", "6031097229")
     local credits = creds:section("最强战场", true)
 
@@ -186,6 +190,14 @@ credits:Button("死铁轨英文", function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/DEADRAILS.github.io/refs/heads/main/mainringta.lua"))()
 end)
 
+credits:Button("自动获得马职业", function()
+   local args = {    [1] = "Horse"}game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_BuyClass"):FireServer(unpack(args))
+end)
+
+credits:Button("传送到终点", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
+end)
+
 local credits = creds:section("战争大亨", true)
 
 credits:Button("中文脚本", function()
@@ -229,6 +241,26 @@ end)
 
 credits:Button("NOL", function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Syndromehsh/BETA2/refs/heads/main/NOL"))()
+end)
+
+local credits = creds:section("越狱", true)
+
+credits:Button("英文", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Introvert1337/Releases/master/JailbreakGrabber.lua"))()
+end)
+
+credits:Button("英文", function()
+   loadstring(game:HttpGet("https://gist.githubusercontent.com/uncooI/e59031055ab468d023c14fcf5faae993/raw/02067759e38a40f9a21bf24067c95ecbc8a052b2/jailbreak%2520fly%2520infinite%2520jump"))()
+end)
+
+local credits = creds:section("伐木大亨", true)
+
+credits:Button("中文", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/XiaoYunCN/UWU/main/LuaWare.lua", true))()
+end)
+
+credits:Button("走马观花", function()
+   loadstring(game:HttpGet"https://pastebin.com/raw/XPTiVKWx")()
 end)
 
    local creds = window:Tab("脚本区", "6031097229")
