@@ -31,7 +31,7 @@ SidebarLine.Name = "SidebarLine"
 SidebarLine.Parent = game:GetService("CoreGui") -- Or Window.Gui if accessible
 
 -- Tab
-local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
+local Tab = Window:Tab({Title = "主页", Icon = "96053471887671"}) do
     -- Section
     Tab:Section({Title = "By JAY\n免费脚本.禁止倒卖"})
 
@@ -101,7 +101,7 @@ InkGameTab:Button({
     Title = "AX中文",
     Desc = "单击以执行",
     Callback = function()
-        loadstring(game:HttpGet(('https://github.com/devslopo/DVES/raw/main/XK%20Hub')))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/墨水游戏.lua"))()
     end
 })
 local Extra = Window:Tab({Title = "死铁轨", Icon = "wrench"})do
