@@ -77,13 +77,18 @@ end
 Window:Line()
 
 -- Another Tab Example
-local Button = Window:Tab({Title = "墨水游戏", Icon = "wrench"}) do
-    Extra:Section({Title = "英文防封", Icon = "wrench"})
-    Tab:Button({
-        Title = "AX",
-        Desc = "单击以执行",
-        Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/TexRBLX/Roblox-stuff/refs/heads/main/ink-game/script.lua"))()
+ local Tab = Window:Tab({
+    Title = "墨水游戏", 
+    Icon = "warehouse", 
+    Locked = false, 
+})
+
+local Button = Tab:Button({ 
+    Title = "AX", 
+    Desc = "单击以执行",  
+    Locked = false, 
+    Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TexRBLX/Roblox-stuff/refs/heads/main/ink-game/script.lua"))()
             })
         end
 
