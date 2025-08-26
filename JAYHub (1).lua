@@ -88,37 +88,33 @@ local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "wrench"})do
     })
 end
 
+    InkGameTab:Button({
+    Title = "LT",
+    Desc = "单击以执行",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua"))()
+    end
+})
 
-     Extra:Button({
-        Title = "神秘洞穴",
-        Desc = "单击以执行",
-        Callback = function()
-            local player = game.Players.LocalPlayer
-            local character = player.Character or player.CharacterAdded:Wait()
-            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-            humanoidRootPart.CFrame = CFrame.new(-9683.05, 59.25, 3136.63)
-            Window:Notify({
-                Title = "通知",
-                Desc = "传送成功",
-                Time = 1
-            })
-        end
-    })
-        
-local Extra = Window:Tab({Title = "力量传奇", Icon = "wrench"}) do
-    Extra:Section({Title = "传送"})
+InkGameTab:Section({Title = "中文不知道防不防封", Icon = "wrench"})
+InkGameTab:Button({
+    Title = "AX中文",
+    Desc = "单击以执行",
+    Callback = function()
+        loadstring(game:HttpGet(('https://github.com/devslopo/DVES/raw/main/XK%20Hub')))()
+    end
+})
+local Extra = Window:Tab({Title = "死铁轨", Icon = "wrench"})do
+    Extra:Section({Title = "英文"})
     Extra:Button({
-        Title = "出生点",
+        Title = "JAY",
         Desc = "单击以执行",
         Callback = function()
-            Window:Notify({
-                Title = "通知",
-                Desc = "传送成功",
-                Time = 1
-            })
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua"))()
         end
     })
 end
+
 -- Final Notification
 Window:Notify({
     Title = "JAY HUB",
