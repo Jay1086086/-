@@ -77,9 +77,9 @@ end
 Window:Line()
 
 -- Another Tab Example
-local Extra = Window:Tab({Title = "墨水游戏", Icon = "wrench"}) do
+local Button = Window:Tab({Title = "墨水游戏", Icon = "wrench"}) do
     Extra:Section({Title = "英文防封", Icon = "wrench"})
-    Extra:Button({
+    Tab:Button({
         Title = "AX",
         Desc = "单击以执行",
         Callback = function()
