@@ -31,7 +31,7 @@ SidebarLine.Name = "SidebarLine"
 SidebarLine.Parent = game:GetService("CoreGui") -- Or Window.Gui if accessible
 
 -- Tab
-local Tab = Window:Tab({Title = "主页", Icon = "rbxassetid://93836456559808"}) do
+local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
     -- Section
     Tab:Section({Title = "By JAY\n免费脚本.禁止倒卖"})
 
