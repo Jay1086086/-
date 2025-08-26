@@ -31,7 +31,7 @@ SidebarLine.Name = "SidebarLine"
 SidebarLine.Parent = game:GetService("CoreGui") -- Or Window.Gui if accessible
 
 -- Tab
-local Tab = Window:Tab({Title = "主页", Icon = "96053471887671"}) do
+local Tab = Window:Tab({Title = "主页", Icon = "rbxassetid://93836456559808"}) do
     -- Section
     Tab:Section({Title = "By JAY\n免费脚本.禁止倒卖"})
 
@@ -42,7 +42,7 @@ local Tab = Window:Tab({Title = "主页", Icon = "96053471887671"}) do
         Callback = function()
         print("Button clicked!")
             Window:Notify({
-                Title = "正在运行",
+                Title = "你老点啥🤓",
                 Desc = "",
                 Time = 1
             })
@@ -110,7 +110,7 @@ local Extra = Window:Tab({Title = "死铁轨", Icon = "wrench"})do
         Title = "JAY",
         Desc = "单击以执行",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/DEADRAILS.github.io/refs/heads/main/mainringta.lua"))()
         end
     })
 end
