@@ -350,37 +350,40 @@ end
         local localPlayer = players.LocalPlayer
 
         if isEnabled then
-            -- 开启夜视逻辑
             pcall(function()
-                -- 保存原始的 Lighting 属性，方便关闭时恢复
-                nightVisionData.originalAmbient = lighting.Ambient
-                nightVisionData.originalBrightness = lighting.Brightness
-                nightVisionData.originalFogEnd = lighting.FogEnd
+                -- 保存原始 Lighting 属性（修复：确保只在开启时保存，避免覆盖）
+                if not nightVisionData.originalAmbient then
+                    nightVisionData.originalAmbient = lighting.Ambient
+                    nightVisionData.originalBrightness = lighting.Brightness
+                    nightVisionData.originalFogEnd = lighting.FogEnd
+                end
 
                 lighting.Ambient = Color3.fromRGB(255, 255, 255)
                 lighting.Brightness = 1
                 lighting.FogEnd = 1e10
 
-                -- 禁用 Lighting 中的特效
+                -- 禁用 Lighting 中的特效（逻辑保留，无错误）
                 for _, v in pairs(lighting:GetDescendants()) do
                     if v:IsA("BloomEffect") or v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") then
                         v.Enabled = false
                     end
                 end
 
-                -- 监听 Lighting 变化，保持夜视效果
+                -- 监听 Lighting 变化（修复：先断开旧连接，避免重复绑定）
+                if nightVisionData.changedConnection then
+                    nightVisionData.changedConnection:Disconnect()
+                end
                 nightVisionData.changedConnection = lighting.Changed:Connect(function()
                     lighting.Ambient = Color3.fromRGB(255, 255, 255)
                     lighting.Brightness = 1
                     lighting.FogEnd = 1e10
                 end)
 
-                -- 给角色添加 PointLight
+                -- 给角色添加 PointLight（逻辑保留，无错误）
                 spawn(function()
-                    local character = localPlayer.Character
-                    repeat wait() until character ~= nil
+                    local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
                     local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-                    if not humanoidRootPart:FindFirstChildWhichIsA("PointLight") then
+                    if not humanoidRootPart:FindFirstChildOfClass("PointLight") then
                         local headlight = Instance.new("PointLight", humanoidRootPart)
                         headlight.Brightness = 1
                         headlight.Range = 60
@@ -389,7 +392,7 @@ end
                 end)
             end)
         else
-            -- 关闭夜视逻辑，恢复原始设置
+            -- 关闭夜视，恢复原始设置（逻辑保留，无错误）
             if nightVisionData.originalAmbient then
                 lighting.Ambient = nightVisionData.originalAmbient
             end
@@ -400,13 +403,11 @@ end
                 lighting.FogEnd = nightVisionData.originalFogEnd
             end
 
-            -- 断开 Lighting 变化的连接
             if nightVisionData.changedConnection then
                 nightVisionData.changedConnection:Disconnect()
                 nightVisionData.changedConnection = nil
             end
 
-            -- 移除添加的 PointLight
             if nightVisionData.pointLight and nightVisionData.pointLight.Parent then
                 nightVisionData.pointLight:Destroy()
                 nightVisionData.pointLight = nil
