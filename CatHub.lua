@@ -7,7 +7,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/x2zu/
 -- Create Main Window
 local Window = Library:Window({
     Title = "JAY HUB",
-    Desc = "感谢游玩",
+    Desc = "感谢支持",
     Icon = 105059922903197,
     Theme = "黑色风格",
     Config = {
@@ -63,8 +63,8 @@ local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
 
     -- Code Display
     local CodeBlock = Tab:Code({
-        Title = "Love Code",
-        Code = "-- This is a code preview\nprint('Hello world')"
+        Title = "下方QQ群",
+        Code = "-- 1049557594\n玩Jay进QQ群')"
     })
 
     -- Simulate update
@@ -111,7 +111,6 @@ end
             })
         end
     })
-end
         
 local Extra = Window:Tab({Title = "力量传奇", Icon = "wrench"}) do
     Extra:Section({Title = "传送"})
@@ -129,14 +128,14 @@ local Extra = Window:Tab({Title = "力量传奇", Icon = "wrench"}) do
 end
 -- Final Notification
 Window:Notify({
-    Title = "Cat Hub",
+    Title = "JAY HUB",
     Desc = "感谢您的游玩",
     Time = 5
 })
 -- 连接脚本的 Destroying 信号，当脚本即将被销毁时触发回调
 script.Destroying:Connect(function()
     Window:Notify({
-        Title = "Cat Hub",
+        Title = "JAY HUB",
         Desc = "关闭",
         Time = 5
     })
