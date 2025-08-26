@@ -341,6 +341,80 @@ end
     end
 })
 
+    InkGameTab:Toggle({
+    Title = "夜视",
+    Default = false,
+    Callback = function(isEnabled)
+        local lighting = game:GetService("Lighting")
+        local players = game:GetService("Players")
+        local localPlayer = players.LocalPlayer
+
+        if isEnabled then
+            -- 开启夜视逻辑
+            pcall(function()
+                -- 保存原始的 Lighting 属性，方便关闭时恢复
+                nightVisionData.originalAmbient = lighting.Ambient
+                nightVisionData.originalBrightness = lighting.Brightness
+                nightVisionData.originalFogEnd = lighting.FogEnd
+
+                lighting.Ambient = Color3.fromRGB(255, 255, 255)
+                lighting.Brightness = 1
+                lighting.FogEnd = 1e10
+
+                -- 禁用 Lighting 中的特效
+                for _, v in pairs(lighting:GetDescendants()) do
+                    if v:IsA("BloomEffect") or v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") then
+                        v.Enabled = false
+                    end
+                end
+
+                -- 监听 Lighting 变化，保持夜视效果
+                nightVisionData.changedConnection = lighting.Changed:Connect(function()
+                    lighting.Ambient = Color3.fromRGB(255, 255, 255)
+                    lighting.Brightness = 1
+                    lighting.FogEnd = 1e10
+                end)
+
+                -- 给角色添加 PointLight
+                spawn(function()
+                    local character = localPlayer.Character
+                    repeat wait() until character ~= nil
+                    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+                    if not humanoidRootPart:FindFirstChildWhichIsA("PointLight") then
+                        local headlight = Instance.new("PointLight", humanoidRootPart)
+                        headlight.Brightness = 1
+                        headlight.Range = 60
+                        nightVisionData.pointLight = headlight
+                    end
+                end)
+            end)
+        else
+            -- 关闭夜视逻辑，恢复原始设置
+            if nightVisionData.originalAmbient then
+                lighting.Ambient = nightVisionData.originalAmbient
+            end
+            if nightVisionData.originalBrightness then
+                lighting.Brightness = nightVisionData.originalBrightness
+            end
+            if nightVisionData.originalFogEnd then
+                lighting.FogEnd = nightVisionData.originalFogEnd
+            end
+
+            -- 断开 Lighting 变化的连接
+            if nightVisionData.changedConnection then
+                nightVisionData.changedConnection:Disconnect()
+                nightVisionData.changedConnection = nil
+            end
+
+            -- 移除添加的 PointLight
+            if nightVisionData.pointLight and nightVisionData.pointLight.Parent then
+                nightVisionData.pointLight:Destroy()
+                nightVisionData.pointLight = nil
+            end
+        end
+    end
+})
+
 -- Another Tab Example
 local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
     InkGameTab:Section({Title = "英文防封", Icon = "wrench"})
