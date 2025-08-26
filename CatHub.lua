@@ -9,7 +9,7 @@ local Window = Library:Window({
     Title = "JAY HUB",
     Desc = "感谢支持",
     Icon = 105059922903197,
-    Theme = "黑色风格",
+    Theme = "Dark",
     Config = {
         Keybind = Enum.KeyCode.LeftControl,
         Size = UDim2.new(0, 500, 0, 350)
@@ -33,7 +33,7 @@ SidebarLine.Parent = game:GetService("CoreGui") -- Or Window.Gui if accessible
 -- Tab
 local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
     -- Section
-    Tab:Section({Title = "By Ccat\nQQ3395858053"})
+    Tab:Section({Title = "By JAY\n免费脚本.禁止倒卖"})
 
     -- Button
      Tab:Button({
@@ -69,7 +69,7 @@ local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
 
     -- Simulate update
     task.delay(5, function()
-        CodeBlock:SetCode("-- Updated!\nprint('New content loaded')")
+            CodeBlock:SetCode("请加入QQ群\n1049557594")
     end)
 end
 
