@@ -2,7 +2,7 @@
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
 -- Load UI Library
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay1086086/-/81c4253127467a9d8c2cadae46c24b5e3a874095/untitled.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay1086086/-/ce392a279080ea36fbe12a31b794a348ab7aa6f2/untitled.lua"))()
 
 -- Create Main Window
 local Window = Library:Window({
