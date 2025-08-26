@@ -7,7 +7,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/x2zu/
 -- Create Main Window
 local Window = Library:Window({
     Title = "JAY HUB",
-    Desc = "欢迎使用",
+    Desc = "感谢游玩",
     Icon = 105059922903197,
     Theme = "黑色风格",
     Config = {
@@ -33,16 +33,16 @@ SidebarLine.Parent = game:GetService("CoreGui") -- Or Window.Gui if accessible
 -- Tab
 local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
     -- Section
-    Tab:Section({Title = "制作 JAY\nQ群1049557594"})
+    Tab:Section({Title = "By Ccat\nQQ3395858053"})
 
     -- Button
      Tab:Button({
-        Title = "传送到死铁轨",
-        Desc = "点击传送",
+        Title = "传送到极速传奇",
+        Desc = "感谢支持",
         Callback = function()
         print("Button clicked!")
             Window:Notify({
-                Title = "正在传送",
+                Title = "正在运行",
                 Desc = "",
                 Time = 1
             })
@@ -51,7 +51,7 @@ local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
 
     -- Slider
     Tab:Slider({
-        Title = "移动速度",
+        Title = "设置速度",
         Min = 0,
         Max = 100,
         Rounding = 0,
@@ -63,8 +63,8 @@ local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
 
     -- Code Display
     local CodeBlock = Tab:Code({
-        Title = "下面是JAYQQ群",
-        Code = "-- QQ群\n1049557594"
+        Title = "Love Code",
+        Code = "-- This is a code preview\nprint('Hello world')"
     })
 
     -- Simulate update
@@ -129,14 +129,14 @@ local Extra = Window:Tab({Title = "力量传奇", Icon = "wrench"}) do
 end
 -- Final Notification
 Window:Notify({
-    Title = "JAY HUB ",
+    Title = "Cat Hub",
     Desc = "感谢您的游玩",
     Time = 5
 })
 -- 连接脚本的 Destroying 信号，当脚本即将被销毁时触发回调
 script.Destroying:Connect(function()
     Window:Notify({
-        Title = "JAY HUB",
+        Title = "Cat Hub",
         Desc = "关闭",
         Time = 5
     })
