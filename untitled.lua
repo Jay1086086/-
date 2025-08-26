@@ -1049,7 +1049,7 @@ function Library:Window(p)
 	local Desc = p.Desc or ''
 	local Icon = p.Icon or 'door-open'
 	local Theme = p.Theme or 'Dark'
-	local Keybind = p.Config.Keybind or Enum.KeyCode.打开关闭
+	local Keybind = p.Config.Keybind or Enum.KeyCode.LeftControl
 	local Size = p.Config.Size or UDim2.new(0, 530,0, 400)
 
 	local R, HAA = false, false
@@ -2441,7 +2441,7 @@ function Library:Window(p)
 			TextButton_1.BorderSizePixel = 0
 			TextButton_1.Size = UDim2.new(1, 0,1, 0)
 			TextButton_1.Font = Enum.Font.GothamBold
-			TextButton_1.Text = "Copy"
+			TextButton_1.Text = "复制"
 			TextButton_1.TextColor3 = Color3.fromRGB(255,255,255)
 			TextButton_1.TextSize = 11
 			TextButton_1.TextTransparency = 0.5
