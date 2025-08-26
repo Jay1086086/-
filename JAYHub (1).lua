@@ -104,7 +104,7 @@ InkGameTab:Button({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/墨水游戏.lua"))()
     end
 })
-local Extra = Window:Tab({Title = "死铁轨", Icon = "wrench"})do
+local Extra = Window:Tab({Title = "死铁轨", Icon = "zombie"})do
     Extra:Section({Title = "英文"})
     Extra:Button({
         Title = "JAY",
