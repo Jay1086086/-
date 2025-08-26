@@ -1049,7 +1049,7 @@ function Library:Window(p)
 	local Desc = p.Desc or ''
 	local Icon = p.Icon or 'door-open'
 	local Theme = p.Theme or 'Dark'
-	local Keybind = p.Config.Keybind or Enum.KeyCode.LeftControl
+	local Keybind = p.Config.Keybind or Enum.KeyCode.打开关闭
 	local Size = p.Config.Size or UDim2.new(0, 530,0, 400)
 
 	local R, HAA = false, false
@@ -4520,8 +4520,8 @@ function Library:Window(p)
 			if not firsttime then
 				firsttime = true
 				Tabs:Notify({
-					Title = 'Dummy Kawaii',
-					Desc = 'Press the <font color="#FF77A5" size="14">('..tostring(Keybind):gsub("Enum.KeyCode.", "")..')</font> button to hide and show the UI',
+					Title = 'JAY HUB',
+					Desc = '点击 <font color="#FF77A5" size="14">('..tostring(Keybind):gsub("Enum.KeyCode.", "")..')</font> 打开脚本',
 					Time = 10
 				})
 			end
@@ -4622,7 +4622,7 @@ function Library:Window(p)
 
 		Close_1.MouseButton1Click:Connect(function()
 			Tabs:Dialog({
-				Title = "你确定退出 <font color='#FF0000'>close</font> JAY脚本吗?",
+				Title = "你确定 <font color='#FF0000'>退出</font> JAY脚本吗?",
 				Button1 = {
 					Title = '对',
 					Color = Color3.fromRGB(0, 188, 0),
