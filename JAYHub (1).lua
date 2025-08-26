@@ -82,7 +82,7 @@ local Tab = Window:Tab({
     Icon = "warehouse", 
     Locked = false
 })
-
+Extra:Section({Title = "英文防封", Icon = "wrench"})
 local Button = Tab:Button({ 
     Title = "AX", 
     Desc = "单击以执行",  
