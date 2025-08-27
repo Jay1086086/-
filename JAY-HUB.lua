@@ -442,6 +442,17 @@ local InkGameTab = Window:Tab({Title = "自然灾害", Icon = "package"})do
     })
 end
 
+local InkGameTab = Window:Tab({Title = "doors", Icon = "door"})do
+    InkGameTab:Section({Title = "中文", Icon = "wrench"})
+    InkGameTab:Button({
+        Title = "JAYdoors",
+        Desc = "汉化",
+        Callback = function()
+            loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\54\53\84\119\84\56\106\97"))()
+        end
+    })
+end
+
 -- Another Tab Example
 local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
     InkGameTab:Section({Title = "英文防封", Icon = "wrench"})
