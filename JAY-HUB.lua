@@ -442,7 +442,7 @@ local InkGameTab = Window:Tab({Title = "自然灾害", Icon = "package"})do
     })
 end
 
-local InkGameTab = Window:Tab({Title = "doors", Icon = "door"})do
+local InkGameTab = Window:Tab({Title = "doors", Icon = "map-pin"})do
     InkGameTab:Section({Title = "中文", Icon = "wrench"})
     InkGameTab:Button({
         Title = "JAYdoors",
@@ -452,6 +452,25 @@ local InkGameTab = Window:Tab({Title = "doors", Icon = "door"})do
         end
     })
 end
+
+local InkGameTab = Window:Tab({Title = "最强战场", Icon = "wrench"})do
+    InkGameTab:Section({Title = "英文", Icon = "wrench"})
+    InkGameTab:Button({
+        Title = "无限侧翻",
+        Desc = "全打开或自己翻译",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/10tempest01/tempest-hub/refs/heads/main/Launcher.lua"))()
+        end
+    })
+end
+
+    InkGameTab:Button({
+    Title = "LTHUB",
+    Desc = "自己翻译",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/The-Strongest-Battlegrounds-NSExpression-v2-a3-TSBG-20252"))()
+    end
+})
 
 -- Another Tab Example
 local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
