@@ -512,13 +512,16 @@ local InkGameTab = Window:Tab({Title = "GB", Icon = "jump"})do
     })
 end
 
-local InkGameTab = Window:Tab({Title = "99夜", Icon = ""})do
-    InkGameTab:Section({Title = "中文", Icon = "wrench"})
+local InkGameTab = Window:Tab({Title = "", Icon = "map-pin"})do
+    InkGameTab:Section({Title = "99夜", Icon = "wrench"})
     InkGameTab:Button({
         Title = "二狗子",
         Desc = "单击以执行",
         Callback = function()
-             loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/shenqin/refs/heads/main/99day.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/shenqin/refs/heads/main/99day.lua"))()
+        end
+    })
+end
 
 -- Another Tab Example
 local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
