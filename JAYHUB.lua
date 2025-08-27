@@ -421,55 +421,6 @@ local nightVisionData = {
     end
 })
 
-local aimEnabled = false          -- 自瞄开关状态
-local teamCheckEnabled = false    -- 团队检测开关状态
-local aimRenderSteppedConnection = nil  -- 存储渲染连接，用于关闭时断开
-local aimPart = "Head"            -- 自瞄目标部位（可改为 HumanoidRootPart）
-
-    InkGameTab:Toggle("[阿尔宙斯]自瞄", "AimToggle", false, function(state)
-    aimEnabled = state
-    if state then
-        -- 开启前断开旧连接，避免内存泄漏
-        if aimRenderSteppedConnection then
-            aimRenderSteppedConnection:Disconnect()
-            aimRenderSteppedConnection = nil
-        end
-
-        -- 绑定渲染事件（用 pcall 捕获错误，避免崩溃）
-        local success, err = pcall(function()
-            aimRenderSteppedConnection = game:GetService("RunService").RenderStepped:Connect(function()
-                if not aimEnabled then return end  -- 确保开关关闭后停止逻辑
-
-                local closest = getClosestPlayerToCursor(aimPart, teamCheckEnabled)
-                if closest then
-                    local Character = closest.Character
-                    -- 补充 Character 空值校验，避免角色加载中报错
-                    local aimobj = Character and (Character:FindFirstChild("aimPart") or Character:FindFirstChild("Head"))
-                    if aimobj then
-                        -- 替换过时的 CFrame.p 为 CFrame.Position
-                        lookAt(workspace.CurrentCamera.CFrame.Position, aimobj.Position)
-                    end
-                end
-            end)
-        end)
-        if not success then
-            warn("自瞄加载失败：" .. err)
-            aimEnabled = false  -- 加载失败时重置开关
-        end
-    else
-        -- 关闭自瞄：断开连接并释放内存
-        if aimRenderSteppedConnection then
-            aimRenderSteppedConnection:Disconnect()
-            aimRenderSteppedConnection = nil
-        end
-    end
-end)
-
--- 团队检测 Toggle（替换为 InkGameTab 前缀，无其他错误）
-    InkGameTab:Toggle("团队检测", "TeamCheckToggle", false, function(state)
-    teamCheckEnabled = state
-end)
-
 -- Another Tab Example
 local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
     InkGameTab:Section({Title = "英文防封", Icon = "wrench"})
