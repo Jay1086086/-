@@ -341,6 +341,11 @@ end
     end
 })
 
+local nightVisionData = {
+    pointLight = nil,
+    changedConnection = nil
+}
+
     InkGameTab:Toggle({
     Title = "夜视",
     Default = false,
