@@ -33,7 +33,7 @@ SidebarLine.Parent = game:GetService("CoreGui") -- Or Window.Gui if accessible
 -- Tab
 local Tab = Window:Tab({Title = "主页", Icon = "star"}) do
     -- Section
-    Tab:Section({Title = "By JAY\n免费脚本.禁止倒卖"})
+    Tab:Section({Title = "制作 JAY\n免费脚本.禁止倒卖"})
 
     -- Button
      Tab:Button({
@@ -422,7 +422,7 @@ local nightVisionData = {
 })
 
     InkGameTab:Button({
-    Title = "爬墙（无法关闭）<",
+    Title = "爬墙（无法关闭）",
     Description = "从GitHub加载并执行脚本",
     Callback = function()
         -- 从指定URL加载并执行飞行脚本
@@ -501,13 +501,33 @@ end
 })
 
 -- Another Tab Example
+local InkGameTab = Window:Tab({Title = "GB", Icon = "jump"})do
+    InkGameTab:Section({Title = "中文", Icon = "wrench"})
+    InkGameTab:Button({
+        Title = "JAY",
+        Desc = "单击以执行",
+        Callback = function()
+            loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\34\104\116\116\112\115\58\47\47\102\114\101\101\110\111\116\101\46\98\105\122\47\114\97\119\47\109\117\122\110\104\101\114\104\114\117\34\41\44\116\114\117\101\41\41\40\41\10")()
+        end
+    })
+end
+
+local InkGameTab = Window:Tab({Title = "99夜", Icon = ""})do
+    InkGameTab:Section({Title = "中文", Icon = "wrench"})
+    InkGameTab:Button({
+        Title = "二狗子",
+        Desc = "单击以执行",
+        Callback = function()
+             loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/shenqin/refs/heads/main/99day.lua"))()
+
+-- Another Tab Example
 local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
     InkGameTab:Section({Title = "英文防封", Icon = "wrench"})
     InkGameTab:Button({
         Title = "AX",
         Desc = "单击以执行",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/TexRBLX/Roblox-stuff/refs/heads/main/ink-game/script.lua"))()
+           loadstring(game:HttpGet("https://raw.githubusercontent.com/TexRBLX/Roblox-stuff/refs/heads/main/ink-game/script.lua"))()
         end
     })
 end
