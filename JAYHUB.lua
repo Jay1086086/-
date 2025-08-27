@@ -421,6 +421,101 @@ local nightVisionData = {
     end
 })
 
+-- 1. 提前声明全局/局部变量（原代码未定义，直接使用会触发 nil 报错）
+local aimEnabled = false          -- 自瞄功能开关状态
+local teamCheckEnabled = false    -- 团队检测开关状态
+local aimRenderSteppedConnection = nil  -- 存储 RenderStepped 连接，用于关闭时断开
+local aimPart = "Head"            -- 自瞄目标部位（默认头部，可改为 HumanoidRootPart 等）
+
+-- 2. 声明缺失的核心函数（原代码调用但未定义，会触发 "attempt to call nil" 报错）
+-- 函数1：获取鼠标附近最近的玩家（支持团队检测）
+local function getClosestPlayerToCursor(targetPartName, checkTeam)
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+    local Camera = workspace.CurrentCamera
+    local closestPlayer = nil
+    local closestDistance = math.huge  -- 初始设为极大值，方便后续比较
+
+    -- 跳过：本地玩家不存在或无角色
+    if not LocalPlayer or not LocalPlayer.Character then return nil end
+
+    -- 遍历所有玩家，筛选目标
+    for _, Player in pairs(Players:GetPlayers()) do
+        -- 跳过本地玩家
+        if Player ~= LocalPlayer then
+            -- 团队检测：开启时跳过同队玩家
+            if checkTeam and Player.Team == LocalPlayer.Team then continue end
+            -- 跳过：玩家无角色或目标部位不存在
+            local Character = Player.Character
+            local TargetPart = Character and Character:FindFirstChild(targetPartName)
+            if not Character or not TargetPart then continue end
+
+            -- 计算：目标部位到鼠标的屏幕距离
+            local ScreenPos, IsOnScreen = Camera:WorldToScreenPoint(TargetPart.Position)
+            if not IsOnScreen then continue end  -- 跳过屏幕外的玩家
+            local MousePos = game:GetService("UserInputService"):GetMouseLocation()
+            local Distance = Vector2.new(ScreenPos.X - MousePos.X, ScreenPos.Y - MousePos.Y).Magnitude
+
+            -- 更新最近玩家
+            if Distance < closestDistance then
+                closestDistance = Distance
+                closestPlayer = Player
+            end
+        end
+    end
+    return closestPlayer
+end
+
+-- 函数2：让相机看向目标位置（实现自瞄核心逻辑）
+local function lookAt(cameraPos, targetPos)
+    local LocalPlayer = game:GetService("Players").LocalPlayer
+    -- 跳过：本地玩家无角色（避免报错）
+    if not LocalPlayer or not LocalPlayer.Character then return end
+
+    -- 计算相机指向目标的角度（基于位置差）
+    local Direction = (targetPos - cameraPos).Unit  -- 单位向量（仅方向，无距离）
+    local LookCFrame = CFrame.new(cameraPos, cameraPos + Direction)  -- 相机朝向CFrame
+    workspace.CurrentCamera.CFrame = LookCFrame  -- 应用朝向到相机
+end
+
+-- 3. 自瞄 Toggle（修复内存泄漏和逻辑漏洞）
+    InkGameTab:Toggle("[阿尔宙斯]自瞄", "AimToggle", false, function(state)
+    aimEnabled = state
+    if state then
+        -- 修复：开启前先断开旧连接，避免重复绑定导致性能问题
+        if aimRenderSteppedConnection then
+            aimRenderSteppedConnection:Disconnect()
+            aimRenderSteppedConnection = nil
+        end
+        -- 绑定每帧执行的自瞄逻辑（RenderStepped：渲染前执行，适合视角控制）
+        aimRenderSteppedConnection = game:GetService("RunService").RenderStepped:Connect(function()
+            -- 修复：添加开关判断，避免断开连接后仍执行逻辑
+            if not aimEnabled then return end
+            local closestPlayer = getClosestPlayerToCursor(aimPart, teamCheckEnabled)
+            if closestPlayer then
+                -- 优先找 "aimPart"，无则用 "Head"（原逻辑保留，补充空值校验）
+                local aimObj = closestPlayer.Character:FindFirstChild("aimPart")
+                aimObj = aimObj or closestPlayer.Character:FindFirstChild("Head")
+                if aimObj then
+                    -- 修复：用 Position 替代 p（CFrame.p 已过时，推荐用 CFrame.Position）
+                    lookAt(workspace.CurrentCamera.CFrame.Position, aimObj.Position)
+                end
+            end
+        end)
+    else
+        -- 关闭自瞄：断开连接并置空，释放内存
+        if aimRenderSteppedConnection then
+            aimRenderSteppedConnection:Disconnect()
+            aimRenderSteppedConnection = nil
+        end
+    end
+end)
+
+-- 4. 团队检测 Toggle（仅需补充变量声明，无其他错误）
+    InkGameTab:Toggle("团队检测", "TeamCheckToggle", false, function(state)
+    teamCheckEnabled = state
+end)
+
 -- Another Tab Example
 local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
     InkGameTab:Section({Title = "英文防封", Icon = "wrench"})
