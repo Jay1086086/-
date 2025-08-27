@@ -501,7 +501,7 @@ end
 })
 
 -- Another Tab Example
-local InkGameTab = Window:Tab({Title = "GB", Icon = "jump"})do
+local InkGameTab = Window:Tab({Title = "GB", Icon = "105059922903197"})do
     InkGameTab:Section({Title = "中文", Icon = "wrench"})
     InkGameTab:Button({
         Title = "JAY",
@@ -512,8 +512,8 @@ local InkGameTab = Window:Tab({Title = "GB", Icon = "jump"})do
     })
 end
 
-local InkGameTab = Window:Tab({Title = "", Icon = "map-pin"})do
-    InkGameTab:Section({Title = "99夜", Icon = "wrench"})
+local InkGameTab = Window:Tab({Title = "99夜", Icon = "map-pin"})do
+    InkGameTab:Section({Title = "中文", Icon = "wrench"})
     InkGameTab:Button({
         Title = "二狗子",
         Desc = "单击以执行",
