@@ -477,7 +477,6 @@ end
             loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
         end
     })
-end
 
 -- Final Notification
 Window:Notify({
