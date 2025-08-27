@@ -442,7 +442,7 @@ local InkGameTab = Window:Tab({Title = "自然灾害", Icon = "package"})do
     })
 end
 
-local InkGameTab = Window:Tab({Title = "doors", Icon = "map-pin"})do
+local InkGameTab = Window:Tab({Title = "doors", Icon = "open-door"})do
     InkGameTab:Section({Title = "中文", Icon = "wrench"})
     InkGameTab:Button({
         Title = "JAYdoors",
@@ -453,7 +453,7 @@ local InkGameTab = Window:Tab({Title = "doors", Icon = "map-pin"})do
     })
 end
 
-local InkGameTab = Window:Tab({Title = "最强战场", Icon = "wrench"})do
+local InkGameTab = Window:Tab({Title = "最强战场", Icon = "holy-sword"})do
     InkGameTab:Section({Title = "英文", Icon = "wrench"})
     InkGameTab:Button({
         Title = "无限侧翻",
@@ -472,7 +472,7 @@ end
     end
 })
 
-local InkGameTab = Window:Tab({Title = "被遗弃", Icon = "wrench"})do
+local InkGameTab = Window:Tab({Title = "被遗弃", Icon = "crown"})do
     InkGameTab:Section({Title = "英文", Icon = "wrench"})
     InkGameTab:Button({
         Title = "boboy",
@@ -501,7 +501,7 @@ end
 })
 
 -- Another Tab Example
-local InkGameTab = Window:Tab({Title = "GB", Icon = "105059922903197"})do
+local InkGameTab = Window:Tab({Title = "GB", Icon = "aiming"})do
     InkGameTab:Section({Title = "中文", Icon = "wrench"})
     InkGameTab:Button({
         Title = "JAY",
@@ -524,7 +524,7 @@ local InkGameTab = Window:Tab({Title = "99夜", Icon = "map-pin"})do
 end
 
 -- Another Tab Example
-local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
+local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "game-console"})do
     InkGameTab:Section({Title = "英文防封", Icon = "wrench"})
     InkGameTab:Button({
         Title = "AX",
@@ -551,7 +551,7 @@ InkGameTab:Button({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/墨水游戏.lua"))()
     end
 })
-local Extra = Window:Tab({Title = "死铁轨", Icon = "eye"})do
+local Extra = Window:Tab({Title = "死铁轨", Icon = "skull"})do
     Extra:Section({Title = "英文"})
     Extra:Button({
         Title = "JAY",
