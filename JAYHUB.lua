@@ -421,6 +421,16 @@ local nightVisionData = {
     end
 })
 
+    InkGameTab:Button({
+    Title = "爬墙",
+    Description = "从GitHub加载并执行脚本",
+    Callback = function()
+        -- 从指定URL加载并执行飞行脚本
+        loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+        print("脚本已加载并执行")
+    end
+})
+
 -- Another Tab Example
 local InkGameTab = Window:Tab({Title = "墨水游戏", Icon = "skull"})do
     InkGameTab:Section({Title = "英文防封", Icon = "wrench"})
@@ -449,7 +459,7 @@ InkGameTab:Button({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/墨水游戏.lua"))()
     end
 })
-local Extra = Window:Tab({Title = "死铁轨", Icon = "knife"})do
+local Extra = Window:Tab({Title = "死铁轨", Icon = "eye"})do
     Extra:Section({Title = "英文"})
     Extra:Button({
         Title = "JAY",
