@@ -422,7 +422,7 @@ local nightVisionData = {
 })
 
     InkGameTab:Button({
-    Title = "爬墙",
+    Title = "爬墙（无法关闭）<",
     Description = "从GitHub加载并执行脚本",
     Callback = function()
         -- 从指定URL加载并执行飞行脚本
@@ -454,7 +454,7 @@ end
 InkGameTab:Section({Title = "中文不知道防不防封", Icon = "wrench"})
 InkGameTab:Button({
     Title = "AX中文",
-    Desc = "单击以执行",
+    Desc = "容易封号",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/墨水游戏.lua"))()
     end
@@ -466,6 +466,61 @@ local Extra = Window:Tab({Title = "死铁轨", Icon = "eye"})do
         Desc = "单击以执行",
         Callback = function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/DEADRAILS.github.io/refs/heads/main/mainringta.lua"))()
+        end
+    })
+end
+
+    Extra:Button({
+        Title = "刷债券",
+        Desc = "局内点Auto Bond开始刷",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
+        end
+    })
+end
+
+    Extra:Button({
+        Title = "自动到终点",
+        Desc = "单击以执行",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
+        end
+    })
+end
+
+    Extra:Button({
+        Title = "自动获得马",
+        Desc = "单击以执行",
+        Callback = function()
+            local args = {    [1] = "Horse"}game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_BuyClass"):FireServer(unpack(args))
+        end
+    })
+end
+
+    Extra:Button({
+        Title = "攻速",
+        Desc = "推荐500",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/HeadHarse/DeadRails/refs/heads/main/V5OPSWING"))()
+        end
+    })
+end
+
+    Extra:Section({Title = "中文"})
+    Extra:Button({
+        Title = "刷债券",
+        Desc = "单击以执行",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/JsYb666/Item/refs/heads/main/%E5%88%B7%E5%80%BA%E5%88%B8"))()
+        end
+    })
+end
+
+    Extra:Button({
+        Title = "SANSHUB",
+        Desc = "需要自己解卡",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/iopjklbnmsss/SansHubScript/refs/heads/main/SansHub"))()
         end
     })
 end
