@@ -105,7 +105,7 @@ Tabs.ParagraphTab:Paragraph({
     ThumbnailSize = 120
 })
 
-Tabs.ParagraphTab({
+Tabs.ParagraphTab:Paragraph({
     Title = "欢迎",
     Desc = "需要时开启反挂机作者:JAY\n脚本免费, 倒卖撕妈",
 })
