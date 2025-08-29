@@ -42,15 +42,16 @@ repeat wait() until Confirmed
 
 local Window = WindUI:CreateWindow({
     Title = "JAYhub",
-    Icon = "crown",
+    Icon = "rbxassetid://129260712070622",
     IconThemed = true,
     Folder = "XYScript",
-    Size = UDim2.fromOffset(580, 340),
+    Size = UDim2.fromOffset(400, 300),
     Transparent = true,
     Theme = "Dark",
     User = { Enabled = true },
     SideBarWidth = 200,
     ScrollBarEnabled = true,
+    Background = "rbxassetid://125448243724346"
 })
 
 Window:Tag({
@@ -85,7 +86,12 @@ Tabs.ZhuanmenSection = Window:Section({
 })
 
 Tabs.ParagraphTab = Tabs.ElementsSection:Tab({ Title = "主页", Icon = "type" })
-Tabs.ButtonTab = Tabs.ElementsSection:Tab({ Title = "通用", Icon = "skull" })
+Tabs.ButtonTab = Tabs.ElementsSection:Tab({ Title = "脚本", Icon = "mouse-pointer-2" })
+Tabs.FE1Tab = Tabs.ElementsSection:Tab({ Title = "FE脚本", Icon = "paintbrush" })
+Tabs.ActionTab = Tabs.ElementsSection:Tab({ Title = "动作", Icon = "paintbrush" })
+Tabs.otherTab = Tabs.ElementsSection:Tab({ Title = "其它脚本中心", Icon = "toggle-left" })
+Tabs.PictureTab = Tabs.ElementsSection:Tab({ Title = "画面", Icon = "toggle-left" })
+Tabs.DevelopmentTab = Tabs.ElementsSection:Tab({ Title = "开发", Icon = "toggle-left" })
 Tabs.BeiyiqiTab = Tabs.ZhuanmenSection:Tab({ Title = "被遗弃", Icon = "type" })
 Tabs.N99nightTab = Tabs.ZhuanmenSection:Tab({ Title = "99夜", Icon = "type" })
 
@@ -100,7 +106,7 @@ Tabs.ParagraphTab:Paragraph({
     ThumbnailSize = 120
 })
 
-Tabs.ParagraphTab({
+Tabs.ParagraphTab:Paragraph({
     Title = "欢迎",
     Desc = "需要时开启反挂机作者:JAY\n脚本免费, 倒卖撕妈",
 })
