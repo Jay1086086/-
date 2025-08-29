@@ -20,9 +20,9 @@ end
 local Confirmed = false
 
 WindUI:Popup({
-    Title = "星焉的脚本",
+    Title = "JAYhub",
     IconThemed = true,
-    Content = "脚本" .. gradient("WindUI", Color3.fromHex("#00FF87"), Color3.fromHex("#60EFFF")) .. "",
+    Content = "1.8" .. gradient("版本", Color3.fromHex("#00FF87"), Color3.fromHex("#60EFFF")) .. "",
     Buttons = {
         {
             Title = "退出",
