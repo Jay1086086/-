@@ -74,17 +74,6 @@ Window:EditOpenButton({
 
 local Tabs = {}
 
-Tabs.ElementsSection = Window:Section({
-    Title = "脚本",
-    Icon = "rbxassetid://6026568198",
-    Opened = true,
-})
-
-Tabs.ZhuanmenSection = Window:Section({
-    Title = "专门脚本",
-    Opened = true,
-})
-
 Tabs.ParagraphTab = Tabs.ElementsSection:Tab({ Title = "主页", Icon = "type" })
 Tabs.ButtonTab = Tabs.ElementsSection:Tab({ Title = "脚本", Icon = "mouse-pointer-2" })
 Tabs.FE1Tab = Tabs.ElementsSection:Tab({ Title = "FE脚本", Icon = "paintbrush" })
