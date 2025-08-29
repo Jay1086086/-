@@ -47,7 +47,7 @@ local Window = WindUI:CreateWindow({
     Folder = "XYScript",
     Size = UDim2.fromOffset(580, 340),
     Transparent = true,
-    Theme = "Light",
+    Theme = "Dark",
     User = { Enabled = true },
     SideBarWidth = 200,
     ScrollBarEnabled = true,
@@ -112,24 +112,15 @@ Window:SelectTab(1)
 Tabs.ParagraphTab:Paragraph({
     Title = "JAYhub",
     Desc = "Q群1049557594",
-    Image = "https://i.postimg.cc/fLmB0Qp3/IMG-20250821-130711.jpg",
+    Image = "https://i.postimg.cc/nL97SYHB/20250722-07083338.jpg",
     ImageSize = 42,
-    Thumbnail = "https://i.postimg.cc/nL97SYHB/20250722-07083338.jpg",
+    Thumbnail = "https://i.postimg.cc/fLmB0Qp3/IMG-20250821-130711.jpg",
     ThumbnailSize = 120
 })
 
-Tabs.ParagraphTab:Button({
-    Title = "发送",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/phonto"))()
-    end
-})
-
-Tabs.ParagraphTab:Input({
-    Title = "图片ID",
-    PlaceholderText = "Enter file name",
-    Callback = function(phonto)
-    end
+Tabs.Home:Paragraph({
+    Title = "欢迎",
+    Desc = "需要时开启反挂机作者:JAY\n脚本免费, 倒卖撕妈",
 })
 -------------------------------------通用-------------------------------------
 Tabs.ButtonTab:Slider({
@@ -151,7 +142,7 @@ Tabs.ButtonTab:Slider({
     Title = "移速",
     Value = {
         Min = 16,
-        Max = 100,
+        Max = 400,
         Default = 16,
     },
     Increment = 1,
