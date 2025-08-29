@@ -84,12 +84,6 @@ Tabs.ZhuanmenSection = Window:Section({
     Opened = true,
 })
 
-Tabs.WindowSection = Window:Section({
-    Title = "窗口管理",
-    Icon = "app-window-mac",
-    Opened = true,
-})
-
 Tabs.ParagraphTab = Tabs.ElementsSection:Tab({ Title = "主页", Icon = "type" })
 Tabs.ButtonTab = Tabs.ElementsSection:Tab({ Title = "脚本", Icon = "mouse-pointer-2" })
 Tabs.FE1Tab = Tabs.ElementsSection:Tab({ Title = "FE脚本", Icon = "paintbrush" })
@@ -99,13 +93,6 @@ Tabs.PictureTab = Tabs.ElementsSection:Tab({ Title = "画面", Icon = "toggle-le
 Tabs.DevelopmentTab = Tabs.ElementsSection:Tab({ Title = "开发", Icon = "toggle-left" })
 Tabs.BeiyiqiTab = Tabs.ZhuanmenSection:Tab({ Title = "被遗弃", Icon = "type" })
 Tabs.N99nightTab = Tabs.ZhuanmenSection:Tab({ Title = "99夜", Icon = "type" })
-
-Tabs.WindowTab = Tabs.WindowSection:Tab({ 
-    Title = "窗口和文件配置", 
-    Icon = "settings", 
-    ShowTabTitle = true 
-})
-Tabs.CreateThemeTab = Tabs.WindowSection:Tab({ Title = "创建主题", Icon = "palette" })
 
 Window:SelectTab(1)
 
@@ -118,7 +105,7 @@ Tabs.ParagraphTab:Paragraph({
     ThumbnailSize = 120
 })
 
-Tabs.Home:Paragraph({
+Tabs.Paragraph:Paragraph({
     Title = "欢迎",
     Desc = "需要时开启反挂机作者:JAY\n脚本免费, 倒卖撕妈",
 })
@@ -361,208 +348,6 @@ Tabs.otherTab:Button({
     Title = "情云脚本",
     Callback = function()
         loadstring(utf8.char((function() return table.unpack({108,111,97,100,115,116,114,105,110,103,40,103,97,109,101,58,72,116,116,112,71,101,116,40,34,104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,67,104,105,110,97,81,89,47,45,47,109,97,105,110,47,37,69,54,37,56,51,37,56,53,37,69,52,37,66,65,37,57,49,34,41,41,40,41})end)()))()
-    end
-})
-
--------------------------------------窗口配置-------------------------------------
-local HttpService = game:GetService("HttpService")
-
-local folderPath = "WindUI"
-if not isfolder(folderPath) then
-    makefolder(folderPath)
-end
-
-local function SaveFile(fileName, data)
-    local filePath = folderPath .. "/" .. fileName .. ".json"
-    local jsonData = HttpService:JSONEncode(data)
-    writefile(filePath, jsonData)
-end
-
-local function LoadFile(fileName)
-    local filePath = folderPath .. "/" .. fileName .. ".json"
-    if isfile(filePath) then
-        local jsonData = readfile(filePath)
-        return HttpService:JSONDecode(jsonData)
-    end
-    return nil
-end
-
-local function ListFiles()
-    local files = {}
-    for _, file in ipairs(listfiles(folderPath)) do
-        local fileName = file:match("([^/]+)%.json$")
-        if fileName then
-            table.insert(files, fileName)
-        end
-    end
-    return files
-end
-
-Tabs.WindowTab:Section({ Title = "窗口", Icon = "app-window-mac" })
-
-local themeValues = {}
-for name, _ in pairs(WindUI:GetThemes()) do
-    table.insert(themeValues, name)
-end
-
-local themeDropdown = Tabs.WindowTab:Dropdown({
-    Title = "选择主题",
-    Multi = false,
-    AllowNone = false,
-    Value = nil,
-    Values = themeValues,
-    Callback = function(theme)
-        WindUI:SetTheme(theme)
-    end
-})
-themeDropdown:Select(WindUI:GetCurrentTheme())
-
-local ToggleTransparency = Tabs.WindowTab:Toggle({
-    Title = "切换窗口透明度",
-    Callback = function(e)
-        Window:ToggleTransparency(e)
-    end,
-    Value = WindUI:GetTransparency()
-})
-
-Tabs.WindowTab:Section({ Title = "保存" })
-
-local fileNameInput = ""
-Tabs.WindowTab:Input({
-    Title = "写入文件名",
-    PlaceholderText = "Enter file name",
-    Callback = function(text)
-        fileNameInput = text
-    end
-})
-
-Tabs.WindowTab:Button({
-    Title = "保存文件",
-    Callback = function()
-        if fileNameInput ~= "" then
-            SaveFile(fileNameInput, { Transparent = WindUI:GetTransparency(), Theme = WindUI:GetCurrentTheme() })
-        end
-    end
-})
-
-Tabs.WindowTab:Section({ Title = "加载" })
-
-local filesDropdown
-local files = ListFiles()
-
-filesDropdown = Tabs.WindowTab:Dropdown({
-    Title = "选择文件",
-    Multi = false,
-    AllowNone = true,
-    Values = files,
-    Callback = function(selectedFile)
-        fileNameInput = selectedFile
-    end
-})
-
-Tabs.WindowTab:Button({
-    Title = "加载文件",
-    Callback = function()
-        if fileNameInput ~= "" then
-            local data = LoadFile(fileNameInput)
-            if data then
-                WindUI:Notify({
-                    Title = "文件已加载",
-                    Content = "Loaded data: "..HttpService:JSONEncode(data),
-                    Duration = 5,
-                })
-                if data.Transparent then 
-                    Window:ToggleTransparency(data.Transparent)
-                    ToggleTransparency:SetValue(data.Transparent)
-                end
-                if data.Theme then 
-                    WindUI:SetTheme(data.Theme)
-                    themeDropdown:Select(data.Theme)
-                end
-            end
-        end
-    end
-})
-
-Tabs.WindowTab:Button({
-    Title = "覆盖文件",
-    Callback = function()
-        if fileNameInput ~= "" then
-            SaveFile(fileNameInput, { Transparent = WindUI:GetTransparency(), Theme = WindUI:GetCurrentTheme() })
-        end
-    end
-})
-
-Tabs.WindowTab:Button({
-    Title = "刷新列表",
-    Callback = function()
-        filesDropdown:Refresh(ListFiles())
-    end
-})
-
-local currentThemeName = WindUI:GetCurrentTheme()
-local themes = WindUI:GetThemes()
-
-local ThemeAccent = themes[currentThemeName].Accent
-local ThemeOutline = themes[currentThemeName].Outline
-local ThemeText = themes[currentThemeName].Text
-local ThemePlaceholderText = themes[currentThemeName].Placeholder
-
-function updateTheme()
-    WindUI:AddTheme({
-        Name = currentThemeName,
-        Accent = ThemeAccent,
-        Outline = ThemeOutline,
-        Text = ThemeText,
-        Placeholder = ThemePlaceholderText
-    })
-    WindUI:SetTheme(currentThemeName)
-end
-
-local CreateInput = Tabs.CreateThemeTab:Input({
-    Title = "主题名称",
-    Value = currentThemeName,
-    Callback = function(name)
-        currentThemeName = name
-    end
-})
-
-Tabs.CreateThemeTab:Colorpicker({
-    Title = "背景颜色",
-    Default = Color3.fromHex(ThemeAccent),
-    Callback = function(color)
-        ThemeAccent = color:ToHex()
-    end
-})
-
-Tabs.CreateThemeTab:Colorpicker({
-    Title = "轮廓颜色",
-    Default = Color3.fromHex(ThemeOutline),
-    Callback = function(color)
-        ThemeOutline = color:ToHex()
-    end
-})
-
-Tabs.CreateThemeTab:Colorpicker({
-    Title = "文本颜色",
-    Default = Color3.fromHex(ThemeText),
-    Callback = function(color)
-        ThemeText = color:ToHex()
-    end
-})
-
-Tabs.CreateThemeTab:Colorpicker({
-    Title = "占位符文本颜色",
-    Default = Color3.fromHex(ThemePlaceholderText),
-    Callback = function(color)
-        ThemePlaceholderText = color:ToHex()
-    end
-})
-
-Tabs.CreateThemeTab:Button({
-    Title = "更新主题",
-    Callback = function()
-        updateTheme()
     end
 })
 
