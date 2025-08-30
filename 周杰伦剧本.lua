@@ -43,7 +43,7 @@ function createMainWindow()
         },
         SideBarWidth = 200,
         ScrollBarEnabled = true,
-        Background = "rbxassetid://128566570863718"
+        Background = "rbxassetid://121541258461281"
     })
     
     -- 创建时间标签
