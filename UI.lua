@@ -129,7 +129,7 @@ Tabs.MainTab:Paragraph({
     })
     
     
-    Tabs.CnmicTab:Slider({
+Tabs.CnmicTab:Slider({
     Title = "跳跃",
     Desc = "大小为 (50-200)",
     Value = {
@@ -180,9 +180,8 @@ Tabs.CnmicTab:Slider({
         game.Workspace.Gravity = value
     end
 })
-
-local originalAmbient
-Tabs.CnmicTab:Toggle({
+--local nightVisionToggle = Tabs.tonyon:Toggle({
+local nightVisionToggle = Tabs.Cnmic:Toggle({
     Title = "夜视",
     Value = false,
     Callback = function(state)
@@ -195,9 +194,7 @@ Tabs.CnmicTab:Toggle({
     end
 })
 
-local Noclip = false
-local NoclipConnection
-Tabs.CnmicTab:Toggle({
+local noclipToggle = Tabs.Cnmic:Toggle({
     Title = "穿墙",
     Value = false,
     Callback = function(state)
@@ -225,7 +222,7 @@ Tabs.CnmicTab:Toggle({
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "点击传送工具",
     Callback = function()
         local mouse = game.Players.LocalPlayer:GetMouse() 
@@ -242,123 +239,130 @@ Tabs.CnmicTab:Button({
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "肘击",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/0Ben1/fe/main/obf_5wpM7bBcOPspmX7lQ3m75SrYNWqxZ858ai3tJdEAId6jSI05IOUB224FQ0VSAswH.lua.txt', true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "玩家实时数据",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE.txt", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "vapev4",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "查看别人物品栏",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E7%9C%8B%E7%89%A9%E5%93%81%E6%A0%8F.txt", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "别人可见音效",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Brookhaven-RP-Audio-Player-Script-Brookhaven-RP-33531", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "隐身",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/vP6CrQJj", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "蜘蛛侠",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/%E8%9C%98%E8%9B%9B%E4%BE%A0.txt", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "拥抱",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/Animations/refs/heads/main/Front%20and%20Back%20Hug%20Tool", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "隐身2",
     Callback = function()
         loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "失重",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Rawbr10/Roblox-Scripts/refs/heads/main/0%20Graviy%20Trip%20Universal", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "跳墙",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script", true))()
     end
 })
 
-Tabs.CnmicTab:Button({
+local suicideButton = Tabs.Cnmic:Button({
     Title = "前后空翻",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/%E6%97%8B%E8%BD%AC.txt", true))()
     end
 })
 
-Tabs.JaobeneTab:Button({
+local suicideButton = Tabs.Jaobene:Button({
     Title = "DHJB脚本卡密",
     Callback = function()
         setclipboard("wjbhd")
     end
 })
 
-Tabs.JaobeneTab:Button({
+local suicideButton = Tabs.Jaobene:Button({
     Title = "DHJB脚本",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/1.3.txt", true))()
     end
 })
 
-Tabs.JaobeneTab:Button({
+local suicideButton = Tabs.Jaobene:Button({
     Title = "XK脚本",
     Callback = function()
         loadstring(game:HttpGet('https://github.com/devslopo/DVES/raw/main/XK%20Hub', true))()
     end
 })
 
-Tabs.JaobeneTab:Button({
+local suicideButton = Tabs.Jaobene:Button({
     Title = "小月脚本",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Syndromehsh/bypass-Script/refs/heads/main/xiaoyue/Main%20Script.lua", true))()
     end
 })
 
-Tabs.JaobeneTab:Button({
+local suicideButton = Tabs.Jaobene:Button({
     Title = "殺脚本",
     Callback = function()
         FengYu_HUB = "殺脚本"
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FengYu-3/FengYu/refs/heads/main/QQ1926190957.lua", true))()
     end
 })
-end
+
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
+    wait(0.7)
+    if bg then bg:Destroy() bg = nil end
+    if bv then bv:Destroy() bv = nil end
+    flyEnabled = false
+    nowe = false
+end)
