@@ -60,8 +60,8 @@ Window:Tag({
 })
 
 Window:EditOpenButton({
-    Title = "JAYhub",
-    Icon = "rbxassetid://6026568198",
+    Title = "JAY脚本中心",
+    Icon = "crown",
     CornerRadius = UDim.new(0,16),
     Size = UDim2.fromOffset(580, 340),
     StrokeThickness = 2,
@@ -72,13 +72,11 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-local Tabs = {
-    Tabs.ParagraphTab = ElementsSection:Tab({ Title = "主页", Icon = "type" })
-    Tabs.ButtonTab = ElementsSection:Tab({ Title = "通用", Icon = "mouse-pointer-2" })
-    Tabs.BeiyiqiTab = ElementsSection:Tab({ Title = "被遗弃", Icon = "type" })
-    Tabs.N99nightTab = ElementsSection:Tab({ Title = "99夜", Icon = "type" })
-    Tabs.JaobeneTab = ElementsSection:Tab({ Title = "脚本中心", Icon = "type" })
-}
+Tabs.ParagraphTab = ElementsSection:Tab({ Title = "主页", Icon = "type" })
+Tabs.ButtonTab = ElementsSection:Tab({ Title = "通用", Icon = "mouse-pointer-2" })
+Tabs.BeiyiqiTab = ElementsSection:Tab({ Title = "被遗弃", Icon = "type" })
+Tabs.N99nightTab = ElementsSection:Tab({ Title = "99夜", Icon = "type" })
+Tabs.JaobeneTab = ElementsSection:Tab({ Title = "脚本中心", Icon = "type" })
 
 Window:SelectTab(1)
 
