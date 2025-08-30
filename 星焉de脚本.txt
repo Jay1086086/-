@@ -73,8 +73,9 @@ Window:EditOpenButton({
 })
 
 local Tabs = {}
-Tabs.ZhuanmenSection = Window:Section({
-    Title = "专门脚本",
+Tabs.ElementsSection = Window:Section({
+    Title = "脚本",
+    Icon = "rbxassetid://6026568198",
     Opened = true,
 })
 
