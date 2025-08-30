@@ -21,7 +21,7 @@ local Confirmed = false
 
 WindUI:Popup({
     Title = "JAYHUB",
-    IconThemed = true,
+    IconThemed = sparkles,
     Content = "1.8版本",
     Buttons = {
         {
