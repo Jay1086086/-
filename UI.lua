@@ -93,10 +93,23 @@ end)
         StrokeThickness = 3,  -- 增加边框厚度
     })
     
-local Tabs = {
-    Main = Window:Tab({ Title = "主页", Icon = "rbxassetid://6026568198" }),
-    CnmicTab = Window:Tab({ Title = "通用", Icon = "rbxassetid://94462465090724" }),
-    JaobeneTab = Window:Tab({ Title = "脚本中心", Icon = "swords" })
+        local MainTab = Window:Tab({
+        Title = "主页",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+        local CnmicTab = Window:Tab({
+        Title = "通用",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+        local JaobeneTab = Window:Tab({
+        Title = "其他脚本中心",
+        Icon = "zap",
+        Locked = false,
+    })
     
     MainTab:Paragraph({
         Title = "欢迎使用JAYhub",
@@ -115,11 +128,6 @@ Tabs.MainTab:Paragraph({
     Desc = ": " .. identifyexecutor(), -- 显示注入器ID
     })
     
-    local CnmicTab = Window:Tab({
-        Title = "通用",
-        Icon = "zap",
-        Locked = false,
-    })
     
     Tabs.CnmicTab:Slider({
     Title = "跳跃",
@@ -174,7 +182,7 @@ Tabs.CnmicTab:Slider({
 })
 
 local originalAmbient
-Tabs.CnmicTabTab:Toggle({
+Tabs.CnmicTab:Toggle({
     Title = "夜视",
     Value = false,
     Callback = function(state)
