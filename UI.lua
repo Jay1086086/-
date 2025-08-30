@@ -111,7 +111,6 @@ end)
         Locked = false,
     })
     
-   
     MainTab:Paragraph({
         Title = "欢迎使用JAYhub",
         Desc = "QQ群1049557594",
