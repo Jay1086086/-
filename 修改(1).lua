@@ -73,11 +73,11 @@ Window:EditOpenButton({
 })
 
 local Tabs = {
-Tabs.ParagraphTab = ElementsSection:Tab({ Title = "主页", Icon = "type" })
-Tabs.ButtonTab = ElementsSection:Tab({ Title = "通用", Icon = "mouse-pointer-2" })
-Tabs.BeiyiqiTab = ElementsSection:Tab({ Title = "被遗弃", Icon = "type" })
-Tabs.N99nightTab = ElementsSection:Tab({ Title = "99夜", Icon = "type" })
-Tabs.JaobeneTab = ElementsSection:Tab({ Title = "脚本中心", Icon = "type" })
+    Tabs.ParagraphTab = ElementsSection:Tab({ Title = "主页", Icon = "type" })
+    Tabs.ButtonTab = ElementsSection:Tab({ Title = "通用", Icon = "mouse-pointer-2" })
+    Tabs.BeiyiqiTab = ElementsSection:Tab({ Title = "被遗弃", Icon = "type" })
+    Tabs.N99nightTab = ElementsSection:Tab({ Title = "99夜", Icon = "type" })
+    Tabs.JaobeneTab = ElementsSection:Tab({ Title = "脚本中心", Icon = "type" })
 }
 
 Window:SelectTab(1)
