@@ -1,4 +1,4 @@
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/refs/heads/main/dist/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/main.lua"))()
 
 function gradient(text, startColor, endColor)
     local result = ""
@@ -72,15 +72,13 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
--- 创建标签页
-local Tabs = {}
-local ElementsSection = Window:Section({Title = "元素", Side = "Left"})
-
+local Tabs = {
 Tabs.ParagraphTab = ElementsSection:Tab({ Title = "主页", Icon = "type" })
 Tabs.ButtonTab = ElementsSection:Tab({ Title = "通用", Icon = "mouse-pointer-2" })
 Tabs.BeiyiqiTab = ElementsSection:Tab({ Title = "被遗弃", Icon = "type" })
 Tabs.N99nightTab = ElementsSection:Tab({ Title = "99夜", Icon = "type" })
-Tabs.JaobeneTab = ElementsSection:Tab({ Title = "其他脚本中心", Icon = "type" })
+Tabs.JaobeneTab = ElementsSection:Tab({ Title = "脚本中心", Icon = "type" })
+}
 
 Window:SelectTab(1)
 
