@@ -21,7 +21,7 @@ local Confirmed = false
 
 WindUI:Popup({
     Title = "JAYHUB",
-    IconThemed = sparkles,
+    Icon = "sparkles",
     Content = "1.8版本",
     Buttons = {
         {
@@ -51,7 +51,7 @@ local Window = WindUI:CreateWindow({
     User = { Enabled = true },
     SideBarWidth = 200,
     ScrollBarEnabled = true,
-    Background = "rbxassetid://96035938131302"
+    Background = "rbxassetid://136900832097452"
 })
 
 Window:Tag({
@@ -72,11 +72,24 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
+    Window:EditOpenButton({
+        StrokeColor = ColorSequence.new({
+            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),     -- 红色
+            ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 165, 0)), -- 橙色
+            ColorSequenceKeypoint.new(0.4, Color3.fromRGB(255, 255, 0)), -- 黄色
+            ColorSequenceKeypoint.new(0.6, Color3.fromRGB(0, 255, 0)),   -- 绿色
+            ColorSequenceKeypoint.new(0.8, Color3.fromRGB(0, 0, 255)),   -- 蓝色
+            ColorSequenceKeypoint.new(1, Color3.fromRGB(128, 0, 128))    -- 紫色
+        }),
+        StrokeThickness = 3,  -- 增加边框厚度
+    })
+    
 local Tabs = {}
 local ElementsSection = Window:Section({Title = "脚本如下", Side = "Left"})
 
 Tabs.ParagraphTab = ElementsSection:Tab({ Title = "主页", Icon = "type" })
 Tabs.ButtonTab = ElementsSection:Tab({ Title = "通用", Icon = "mouse-pointer-2" })
+Tabs.sitiegunTab = ElementsSection:Tab({ Title = "死铁轨", Icon = "type" })
 Tabs.BeiyiqiTab = ElementsSection:Tab({ Title = "被遗弃", Icon = "type" })
 Tabs.N99nightTab = ElementsSection:Tab({ Title = "99夜", Icon = "type" })
 Tabs.JaobeneTab = ElementsSection:Tab({ Title = "脚本中心", Icon = "type" })
