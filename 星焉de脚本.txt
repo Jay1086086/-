@@ -72,9 +72,9 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-local Tabs = {}
+-- 新增：创建"专门"分区
 Tabs.ElementsSection = Window:Section({
-    Title = "脚本",
+    Title = "专门",
     Icon = "rbxassetid://6026568198",
     Opened = true,
 })
@@ -86,8 +86,8 @@ Tabs.ActionTab = Tabs.ElementsSection:Tab({ Title = "动作", Icon = "paintbrush
 Tabs.otherTab = Tabs.ElementsSection:Tab({ Title = "其它脚本中心", Icon = "toggle-left" })
 Tabs.PictureTab = Tabs.ElementsSection:Tab({ Title = "画面", Icon = "toggle-left" })
 Tabs.DevelopmentTab = Tabs.ElementsSection:Tab({ Title = "开发", Icon = "toggle-left" })
-Tabs.BeiyiqiTab = Tabs.ZhuanmenSection:Tab({ Title = "被遗弃", Icon = "type" })
-Tabs.N99nightTab = Tabs.ZhuanmenSection:Tab({ Title = "99夜", Icon = "type" })
+Tabs.BeiyiqiTab = Tabs.ElementsSection:Tab({ Title = "被遗弃", Icon = "type" })
+Tabs.N99nightTab = Tabs.ElementsSection:Tab({ Title = "99夜", Icon = "type" })
 
 Window:SelectTab(1)
 
@@ -183,13 +183,21 @@ Tabs.ButtonTab:Toggle({
                 end
             end)
         else
-            Noclip = false
-            if NoclipConnection then
-                NoclipConnection:Disconnect()
-            end
-        end
-    end
-})
+Noclip = false
+             local character = game.Players.LocalPlayer.Character
+             if character then
+                 for _, part in pairs(character:GetDescendants()) do
+                     if part:IsA("BasePart") then
+                         part.CanCollide = true
+                     end
+                 end
+             end
+             if NoclipConnection then
+                 NoclipConnection:Disconnect()
+             end
+         end
+     end
+ })
 
 Tabs.ButtonTab:Button({
     Title = "点击传送工具",
@@ -210,7 +218,7 @@ Tabs.ButtonTab:Button({
 Tabs.ButtonTab:Button({
     Title = "玩家实时数据",
     Callback = function()
-        loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE.txt"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE.txt"))()
 
     end
 })
