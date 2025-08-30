@@ -72,7 +72,6 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
--- 新增：创建"专门"分区
 Tabs.ElementsSection = Window:Section({
     Title = "专门",
     Icon = "rbxassetid://6026568198",
