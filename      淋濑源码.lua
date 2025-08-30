@@ -6,7 +6,7 @@ WindUI:Popup({
     Title = "XLAv1.0",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
-    Content = "欢迎使用XLA的脚本 - 设备: " .. (isMobile and "手机" or "电脑"),
+    Content = "欢迎使用JAYhub1.8"
     Buttons = {
         {
             Title = "进入脚本",
@@ -68,176 +68,12 @@ Tabs.Main:Paragraph({
 })
 
 
--- 用于存储滑块最后值和通知计时器
-local lastFlySpeed = 1
-local lastWalkSpeed = 16
-local lastJumpPower = 100
-local notifyCooldown = 0
-local NOTIFY_DELAY = 0.5 -- 0.5秒后显示通知
-local flyToggle = Tabs.Movement:Toggle({
-    Title = "开启绘制",
-    Desc = "启用人物绘制",
-    Callback = function(state)
-        ESP.Enabled = state
-        if state then
-            WindUI:Notify({
-                Title = "绘制已启用",
-                Desc = "ESP人物绘制已启用",
-                Duration = 3
-            })
-        else
-            WindUI:Notify({
-                Title = "绘制已禁用",
-                Desc = "ESP人物绘制已禁用",
-                Duration = 3
-            })
-        end
-    end
-})
-
--- 添加ESP配置选项
-Tabs.Movement:Toggle({
-    Title = "显示方框",
-    Desc = "显示玩家周围的方框",
-    Default = true,
-    Callback = function(state)
-        ESP.ShowBoxes = state
-    end
-})
-
-Tabs.Movement:Toggle({
-    Title = "显示名字",
-    Desc = "显示玩家名字",
-    Default = true,
-    Callback = function(state)
-        ESP.ShowNames = state
-    end
-})
-
-Tabs.Movement:Toggle({
-    Title = "显示追踪线",
-    Desc = "显示从屏幕底部到玩家的线",
-    Default = true,
-    Callback = function(state)
-        ESP.ShowTracers = state
-    end
-})
-
-Tabs.Movement:Toggle({
-    Title = "显示血量",
-    Desc = "显示玩家血量信息",
-    Default = true,
-    Callback = function(state)
-        ESP.ShowHealth = state
-    end
-})
-
-Tabs.Movement:Toggle({
-    Title = "彩虹模式",
-    Desc = "启用彩虹色效果",
-    Callback = function(state)
-        if state then
-            ESP.Color = nil -- 设置为nil以使用彩虹色
-        else
-            ESP.Color = Color3.new(1, 1, 1) -- 设置为白色
-        end
-    end
-})
--- Movement 标签页
-local flyToggle = Tabs.Movement:Toggle({
-    Title = "飞行模式",
-    Desc = "启用高级飞行功能，使用WASD控制方向",
-    Callback = function(state)
-        if state then
-            if enableFlight() then
-                WindUI:Notify({
-                    Title = "飞行模式已启用",
-                    Desc = "高级飞行已启用！使用WASD控制方向",
-                    Duration = 3
-                })
-            else
-                flyToggle:Set(false)
-                WindUI:Notify({
-                    Title = "错误",
-                    Desc = "无法启用飞行，请确保角色存在",
-                    Duration = 3
-                })
-            end
-        else
-            disableFlight()
-            WindUI:Notify({
-                Title = "飞行已禁用",
-                Desc = "飞行已禁用",
-                Duration = 3
-            })
-        end
-    end
-})
-
--- 飞行速度滑块（只在停止调节后显示通知）
-Tabs.Movement:Slider({
-    Title = "飞行速度",
-    Desc = "调整飞行移动速度 (1-200)",
-    Value = {
-        Min = 1,
-        Max = 200,
-        Default = 1,
-    },
-    Callback = function(value)
-        flySpeed = value
-        lastFlySpeed = value
-        maxspeed = value * 10 -- 映射到飞行系统的速度
-        
-        -- 清除之前的计时器
-        if flySpeedNotify then
-            flySpeedNotify:Disconnect()
-        end
-        
-        -- 设置新的计时器，停止调节0.5秒后显示通知
-        flySpeedNotify = game:GetService("RunService").Heartbeat:Connect(function()
-            if tick() - notifyCooldown > NOTIFY_DELAY then
-                WindUI:Notify({
-                    Title = "飞行速度设置为: " .. lastFlySpeed,
-                    Desc = "飞行速度设置为: " .. lastFlySpeed,
-                    Duration = 2
-                })
-                flySpeedNotify:Disconnect()
-            end
-        end)
-        
-        notifyCooldown = tick()
-    end
-})
-
-local speedToggle = Tabs.Movement:Toggle({
-    Title = "超级速度",
-    Desc = "大幅增加地面移动速度",
-    Callback = function(state)
-        speedBoostEnabled = state
-        updateWalkSpeed()
-        if state then
-            WindUI:Notify({
-                Title = "超级速度已启用，速度: " .. walkSpeed,
-                Desc = "已启用，速度: " .. walkSpeed,
-                Duration = 3
-            })
-        else
-            WindUI:Notify({
-                Title = "超级速度已禁用",
-                Desc = "已禁用",
-                Duration = 3
-            })
-        end
-    end
-})
-
--- 速度值滑块（只在停止调节后显示通知）
-Tabs.Movement:Slider({
+Tabs.tonyon:Slider({
     Title = "速度值",
-    Desc = "设置超级速度的大小 (16-10000)",
+    Desc = "设置超级速度的大小 (16-400)",
     Value = {
         Min = 16,
-        Max = 10000,
+        Max = 400,
         Default = 16,
     },
     Callback = function(value)
@@ -269,35 +105,13 @@ Tabs.Movement:Slider({
     end
 })
 
-local jumpToggle = Tabs.Movement:Toggle({
-    Title = "超级跳跃",
-    Desc = "增加跳跃高度",
-    Callback = function(state)
-        superJumpEnabled = state
-        updateJumpPower()
-        if state then
-            WindUI:Notify({
-                Title = "超级跳跃已启用，跳跃高度: " .. jumpPower,
-                Desc = "已启用，跳跃高度: " .. jumpPower,
-                Duration = 3
-            })
-        else
-            WindUI:Notify({
-                Title = "超级跳跃已禁用",
-                Desc = "已禁用",
-                Duration = 3
-            })
-        end
-    end
-})
-
 -- 跳跃高度滑块（只在停止调节后显示通知）
-Tabs.Movement:Slider({
+Tabs.tonyon:Slider({
     Title = "跳跃高度",
-    Desc = "设置跳跃高度 (50-1000)",
+    Desc = "设置跳跃高度 (50-200)",
     Value = {
         Min = 50,
-        Max = 1000,
+        Max = 200,
         Default = 100,
     },
     Callback = function(value)
@@ -329,7 +143,7 @@ Tabs.Movement:Slider({
     end
 })
 
-local noclipToggle = Tabs.Movement:Toggle({
+local noclipToggle = Tabs.tonyon:Toggle({
     Title = "穿墙模式",
     Desc = "可以穿透墙壁和障碍物",
     Callback = function(state)
@@ -343,43 +157,14 @@ local noclipToggle = Tabs.Movement:Toggle({
         else
             WindUI:Notify({
                 Title = "穿墙模式已禁用",
-                Desc = "已禁用",
+                Desc = "已关闭",
                 Duration = 3
             })
         end
     end
 })
 
-Tabs.Movement:Button({
-    Title = "传送到重生点",
-    Desc = "将你的角色传送到重生点",
-    Callback = function()
-        local character = localPlayer.Character
-        if character then
-            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
-            if humanoidRootPart then
-                local spawns = workspace:FindFirstChild("SpawnLocation") or workspace:FindFirstChild("Spawn")
-                if spawns then
-                    humanoidRootPart.CFrame = spawns.CFrame + Vector3.new(0, 5, 0)
-                    WindUI:Notify({
-                        Title = "已传送到重生点",
-                        Desc = "已传送到重生点",
-                        Duration = 3
-                    })
-                else
-                    humanoidRootPart.CFrame = CFrame.new(0, 50, 0)
-                    WindUI:Notify({
-                        Title = "已传送到地图中心",
-                        Desc = "已传送到地图中心",
-                        Duration = 3
-                    })
-                end
-            end
-        end
-    end
-})
-
-local nightVisionToggle = Tabs.Movement:Toggle({
+local nightVisionToggle = Tabs.tonyon:Toggle({
     Title = "夜视",
     Desc = "启用夜视效果，提高环境亮度",
     Callback = function(state)
@@ -401,7 +186,7 @@ local nightVisionToggle = Tabs.Movement:Toggle({
     end
 })
 
-local infiniteJumpToggle = Tabs.Movement:Toggle({
+local infiniteJumpToggle = Tabs.tonyon:Toggle({
     Title = "无限跳",
     Desc = "启用无限跳跃能力",
     Callback = function(state)
@@ -422,21 +207,9 @@ local infiniteJumpToggle = Tabs.Movement:Toggle({
     end
 })
 
-local universalEspToggle = Tabs.Movement:Button({
-    Title = "通用ESP",
-    Desc = "启用通用ESP功能，显示玩家位置",
-    Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
-        WindUI:Notify({
-            Title = "通用ESP已启用",
-            Desc = "通用ESP功能已激活",
-            Duration = 3
-        })
-    end
-})
-local suicideButton = Tabs.Movement:Button({
-    Title = "无敌",
-    Desc = "角色生命设置为999999999999",
+local suicideButton = Tabs.tonyon:Button({
+    Title = "飞行V3",
+    Desc = "冷情汉化飞行",
     Callback = function()
         game.Players.LocalPlayer.Character.Humanoid.Health = 999999999999
         WindUI:Notify({
@@ -447,9 +220,9 @@ local suicideButton = Tabs.Movement:Button({
     end
 })
 -- 自杀功能
-local suicideButton = Tabs.Movement:Button({
+local suicideButton = Tabs.tonyon:Button({
     Title = "自杀",
-    Desc = "立即结束当前角色生命",
+    Desc = "单机变成残渣",
     Callback = function()
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
         WindUI:Notify({
@@ -461,7 +234,7 @@ local suicideButton = Tabs.Movement:Button({
 })
 
 -- 反挂机功能
-local antiAfkButton = Tabs.Movement:Button({
+local antiAfkButton = Tabs.tonyon:Button({
     Title = "反挂机v2",
     Desc = "启用反挂机功能，防止被踢出游戏",
     Callback = function()
