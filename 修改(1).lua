@@ -1,4 +1,4 @@
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/refs/heads/main/dist/main.lua"))()
 
 function gradient(text, startColor, endColor)
     local result = ""
@@ -94,6 +94,15 @@ Tabs.ParagraphTab:Paragraph({
 Tabs.ParagraphTab:Paragraph({
     Title = "欢迎",
     Desc = "需要时开启反挂机作者:JAY\n脚本免费, 倒卖撕妈",
+})
+
+Tabs.ParagraphTab:Paragraph({
+    Title = "感谢牢汤.WM.风之子.的支持",
+    Desc = "当前服务器ID: " .. game.PlaceId, -- 显示服务器ID
+})
+Tabs.ParagraphTab:Paragraph({
+    Title = "您的注入器",
+    Desc = ": " .. identifyexecutor(), -- 显示注入器ID
 })
 
 Tabs.ButtonTab:Slider({
