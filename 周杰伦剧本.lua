@@ -1,4 +1,4 @@
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/refs/heads/main/dist/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/main.lua"))()
 
 -- 添加欢迎弹窗
 WindUI:Popup({
@@ -244,7 +244,6 @@ function createMainWindow()
 
     GeneralTab:Button({
         Title = "飞行v3",
-        Desc = "冷情汉化",
         Callback = function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay907692/Jay/8b94c47bd5969608438fa1ee57f34b1350789caa/飞行脚本", true))()
         end
