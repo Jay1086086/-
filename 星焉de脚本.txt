@@ -73,6 +73,10 @@ Window:EditOpenButton({
 })
 
 local Tabs = {}
+Tabs.ZhuanmenSection = Window:Section({
+    Title = "专门脚本",
+    Opened = true,
+})
 
 Tabs.ParagraphTab = Tabs.ElementsSection:Tab({ Title = "主页", Icon = "type" })
 Tabs.ButtonTab = Tabs.ElementsSection:Tab({ Title = "脚本", Icon = "mouse-pointer-2" })
