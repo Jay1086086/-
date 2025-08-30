@@ -1,4 +1,4 @@
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/refs/heads/main/dist/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/main.lua"))()
 
 function gradient(text, startColor, endColor)
     local result = ""
@@ -71,6 +71,9 @@ Window:EditOpenButton({
     ),
     Draggable = true,
 })
+
+local Tabs = {}
+local ElementsSection = Window:Section({Title = "脚本如下", Side = "Left"})
 
 Tabs.ParagraphTab = ElementsSection:Tab({ Title = "主页", Icon = "type" })
 Tabs.ButtonTab = ElementsSection:Tab({ Title = "通用", Icon = "mouse-pointer-2" })
