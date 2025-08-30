@@ -99,6 +99,19 @@ end)
         Locked = false,
     })
     
+        local CnmicTab = Window:Tab({
+        Title = "通用",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+        local JaobeneTab = Window:Tab({
+        Title = "其他脚本中心",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+   
     MainTab:Paragraph({
         Title = "欢迎使用JAYhub",
         Desc = "QQ群1049557594",
@@ -318,12 +331,6 @@ Tabs.CnmicTab:Button({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/%E6%97%8B%E8%BD%AC.txt", true))()
     end
 })
-
-    local JaobeneTab = Window:Tab({
-        Title = "其他脚本中心",
-        Icon = "zap",
-        Locked = false,
-    })
 
 Tabs.JaobeneTab:Button({
     Title = "DHJB脚本卡密",
