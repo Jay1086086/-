@@ -3,10 +3,10 @@ local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay108
 WindUI:Popup({
     Title = "欢迎使用JAYhub1.8",
     Icon = "sparkles",
-    Content = "进入脚本",
+    Content = "背景是给我赞助的人",
     Buttons = {
         {
-            Title = "JAYhub",
+            Title = "进入脚本",
             Icon = "arrow-right",
             Variant = "Primary",
             Callback = function() 
@@ -42,7 +42,7 @@ function createMainWindow()
         },
         SideBarWidth = 200,
         ScrollBarEnabled = true,
-        Background = "rbxassetid://119277358253540"
+        Background = "rbxassetid://131066281260487"
     })
     
     local TimeTag = Window:Tag({
