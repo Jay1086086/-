@@ -1,4 +1,4 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay1086086/-/8b5e058310d12179309f3d9b80787fd3f5978207/main-2.lua", true))()
 
 -- 添加欢迎弹窗
 WindUI:Popup({
