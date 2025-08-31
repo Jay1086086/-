@@ -297,6 +297,52 @@ function createMainWindow()
         end
     })
 
+    local OftenTab = Window:Tab({
+        Title = "死铁轨",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+        OftenTab:Button({
+        Title = "攻速",
+        Desc = "英文 推荐500",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/HeadHarse/DeadRails/refs/heads/main/V5OPSWING"))()
+        end
+    })
+    
+            OftenTab:Button({
+        Title = "刷债券",
+        Desc = "英文 进局里找到Auto bond",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
+        end
+    })
+    
+            OftenTab:Button({
+        Title = "JAY",
+        Desc = "英文",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/DEADRAILS.github.io/refs/heads/main/mainringta.lua"))()
+        end
+    })
+    
+            OftenTab:Button({
+        Title = "自动到终点",
+        Desc = "英文",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
+        end
+    })
+    
+            OftenTab:Button({
+        Title = "SANSHUB",
+        Desc = "中文 要解卡",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
+        end
+    })
+    
     local OtherTab = Window:Tab({
         Title = "其他脚本中心",
         Icon = "zap",
