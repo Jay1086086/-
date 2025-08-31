@@ -48,7 +48,7 @@ function createMainWindow()
     
     -- 创建时间标签
     local TimeTag = Window:Tag({
-        Title = "00:00",
+        Title = "北京时间00:00",
         Color = Color3.fromHex("#30ff6a")
     })
     
@@ -269,35 +269,27 @@ function createMainWindow()
         end
     })
 
-    local CollectTab = Window:Tab({
-        Title = "收集",
-        Icon = "zap",
-        Locked = false,
-    })
-
-    CollectTab:Toggle({
+    GeneralTab:Toggle({
         Title = "别人可听",
         Desc = "xp",
         Locked = false,
         Callback = function(state)
             if state then
                 loadstring(game:HttpGet("https://rawscripts.net/raw/Brookhaven-RP-Audio-Player-Script-Brookhaven-RP-33531", true))()
-            end
         end
     })
 
-    CollectTab:Toggle({
+    GeneralTab:Toggle({
         Title = "隐身",
         Desc = "xp",
         Locked = false,
         Callback = function(state)
             if state then
                 loadstring(game:HttpGet("https://pastebin.com/raw/vP6CrQJj", true))()
-            end
         end
     })
 
-    CollectTab:Toggle({
+    GeneralTab:Toggle({
         Title = "蜘蛛侠",
         Desc = "xp",
         Locked = false,
@@ -308,7 +300,7 @@ function createMainWindow()
         end
     })
 
-    CollectTab:Toggle({
+    GeneralTab:Toggle({
         Title = "拥抱",
         Desc = "xp",
         Locked = false,
@@ -319,7 +311,7 @@ function createMainWindow()
         end
     })
 
-    CollectTab:Toggle({
+    GeneralTab:Toggle({
         Title = "隐身2",
         Desc = "xp",
         Locked = false,
@@ -330,7 +322,7 @@ function createMainWindow()
         end
     })
 
-    CollectTab:Toggle({
+    GeneralTab:Toggle({
         Title = "失重",
         Desc = "xp",
         Locked = false,
@@ -341,7 +333,7 @@ function createMainWindow()
         end
     })
 
-    CollectTab:Toggle({
+    General:Toggle({
         Title = "跳墙",
         Desc = "xp",
         Locked = false,
@@ -352,7 +344,7 @@ function createMainWindow()
         end
     })
 
-    CollectTab:Toggle({
+    GeneralTab:Toggle({
         Title = "前后空翻",
         Desc = "xp",
         Locked = false,
