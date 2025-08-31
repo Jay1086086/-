@@ -3,7 +3,7 @@ local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay108
 WindUI:Popup({
     Title = "欢迎使用JAYhub1.8",
     Icon = "sparkles",
-    Content = "背景是给我赞助的人",
+    Content = "背景是我和给我赞助的人",
     Buttons = {
         {
             Title = "进入脚本",
@@ -26,7 +26,7 @@ function createMainWindow()
     local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
     local Window = WindUI:CreateWindow({
-        Title = "JAYhub<font color='#00FF00'>1.8</font>",
+        Title = "JAYhub<font color='#00FF00'>1.8</font>",
         Icon = "rbxassetid://4483362748",
         IconTransparency = 0.5,
         IconThemed = true,
