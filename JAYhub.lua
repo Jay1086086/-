@@ -1,9 +1,9 @@
 local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay1086086/-/8b5e058310d12179309f3d9b80787fd3f5978207/main-2.lua"))()
 
 WindUI:Popup({
-    Title = "欢迎使用JAYhub",
+    Title = "欢迎使用JAYhub1.8",
     Icon = "sparkles",
-    Content = "1.8版本JAY",
+    Content = "进入脚本",
     Buttons = {
         {
             Title = "JAYhub",
