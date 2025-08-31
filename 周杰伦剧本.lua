@@ -298,7 +298,7 @@ function createMainWindow()
     })
 
     local OtherTab = Window:Tab({
-        Title = "其他脚本",
+        Title = "其他脚本中心",
         Icon = "zap",
         Locked = false,
     })
@@ -311,48 +311,38 @@ function createMainWindow()
         end
     })
 
-    OtherTab:Toggle({
+    OtherTab:Button({
         Title = "DHJB脚本",
-        Desc = "xp",
-        Locked = false,
+        Desc = "单击执行",
         Callback = function(state)
-            if state then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/1.3.txt", true))()
             end
         end
     })
 
-    OtherTab:Toggle({
+    OtherTab:Button({
         Title = "XK脚本",
-        Desc = "xp",
-        Locked = false,
+        Desc = "单击执行",
         Callback = function(state)
-            if state then
                 loadstring(game:HttpGet('https://github.com/devslopo/DVES/raw/main/XK%20Hub', true))()
             end
         end
     })
 
-    OtherTab:Toggle({
+    OtherTab:Button({
         Title = "小月脚本",
-        Desc = "xp",
-        Locked = false,
+        Desc = "单击执行",
         Callback = function(state)
-            if state then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Syndromehsh/bypass-Script/refs/heads/main/xiaoyue/Main%20Script.lua", true))()
-            end
         end
     })
 
-    OtherTab:Toggle({
+    OtherTab:Button({
         Title = "杀脚本",
-        Desc = "xp",
-        Locked = false,
+        Desc = "单击执行",
         Callback = function(state)
-            if state then
                 FengYu_HUB = "殺脚本"
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/FengYu-3/FengYu/refs/heads/main/QQ1926190957.lua", true))()
-            end
         end
     })
 end
