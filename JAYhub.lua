@@ -438,7 +438,7 @@ function createMainWindow()
 
     local OftenTab = Window:Tab({
         Title = "死铁轨",
-        Icon = "zap",
+        Icon = "skull",
         Locked = false,
     })
     
@@ -617,7 +617,7 @@ function createMainWindow()
         Title = "情云",
         Desc = "中文",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/ChinaQY/-/main/%E6%83%85%E4%BA%91", true))()
+            loadstring(utf8.char((function() return table.unpack({108,111,97,100,115,116,114,105,110,103,40,103,97,109,101,58,72,116,116,112,71,101,116,40,34,104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,67,104,105,110,97,81,89,47,45,47,109,97,105,110,47,37,69,54,37,56,51,37,56,53,37,69,52,37,66,65,37,57,49,34,41,41,40,41})end)()))()
         end
     })
     
@@ -647,13 +647,13 @@ function createMainWindow()
         Title = "情云",
         Desc = "中文 简洁好用",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/ChinaQY/-/main/%E6%83%85%E4%BA%91", true))()
+            loadstring(utf8.char((function() return table.unpack({108,111,97,100,115,116,114,105,110,103,40,103,97,109,101,58,72,116,116,112,71,101,116,40,34,104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,67,104,105,110,97,81,89,47,45,47,109,97,105,110,47,37,69,54,37,56,51,37,56,53,37,69,52,37,66,65,37,57,49,34,41,41,40,41})end)()))()
         end
     })
     
     local NatureTab = Window:Tab({
         Title = "自然灾害",
-        Icon = "zap",
+        Icon = "rbxassetid://94462465090724",
         Locked = false,
     })
     
@@ -675,7 +675,7 @@ function createMainWindow()
     
     local StornTab = Window:Tab({
         Title = "最强战场",
-        Icon = "zap",
+        Icon = "swords",
         Locked = false,
     })
     
@@ -697,18 +697,9 @@ function createMainWindow()
     
     local DoorTab = Window:Tab({
         Title = "doors",
-        Icon = "zap",
+        Icon = "pull-door",
         Locked = false,
     })
-
-    DoorTab:Button({
-        Title = "Jay汉化",
-        Desc = "中文",
-        Callback = function()
-            loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\54\53\84\119\84\56\106\97"))()
-        end
-    })
-
 
     DoorTab:Button({
         Title = "Jay汉化",
@@ -736,23 +727,23 @@ function createMainWindow()
 
     local OtherTab = Window:Tab({
         Title = "其他脚本中心",
-        Icon = "zap",
+        Icon = "user",
         Locked = false,
     })
 
     OtherTab:Button({
-        Title = "DHJB脚本卡密",
-        Desc = "点击复制卡密",
+        Title = "皮脚本",
+        Desc = "单击执行",
         Callback = function()
-            setclipboard("wjbhd")
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/QQ1002100032-Roblox-Pi-script.lua"))()
         end
     })
 
     OtherTab:Button({
-        Title = "DHJB脚本",
+        Title = "导管脚本中心",
         Desc = "单击执行",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/1.3.txt", true))()
+            loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\117\115\101\114\97\110\101\119\114\102\102\47\114\111\98\108\111\120\45\47\109\97\105\110\47\37\69\54\37\57\68\37\65\49\37\69\54\37\65\67\37\66\69\37\69\53\37\56\68\37\56\70\37\69\56\37\65\69\37\65\69\34\41\41\40\41\10")()
         end
     })
 
@@ -765,10 +756,10 @@ function createMainWindow()
     })
 
     OtherTab:Button({
-        Title = "小月脚本",
+        Title = "情云脚本",
         Desc = "单击执行",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Syndromehsh/bypass-Script/refs/heads/main/xiaoyue/Main%20Script.lua", true))()
+            loadstring(utf8.char((function() return table.unpack({108,111,97,100,115,116,114,105,110,103,40,103,97,109,101,58,72,116,116,112,71,101,116,40,34,104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,67,104,105,110,97,81,89,47,45,47,109,97,105,110,47,37,69,54,37,56,51,37,56,53,37,69,52,37,66,65,37,57,49,34,41,41,40,41})end)()))()
         end
     })
 
