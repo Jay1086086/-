@@ -334,14 +334,54 @@ function createMainWindow()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
         end
     })
-    
+        
+            OftenTab:Button({
+        Title = "自动获得马",
+        Desc = "英文",
+        Callback = function()
+            local args = {    [1] = "Horse"}game:GetService("ReplicatedStorage"):WaitForChild("Shared"):WaitForChild("RemotePromise"):WaitForChild("Remotes"):WaitForChild("C_BuyClass"):FireServer(unpack(args))
+        end
+    })
+            OftenTab:Button({
+        Title = "刷债券",
+        Desc = "中文",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/JsYb666/Item/refs/heads/main/%E5%88%B7%E5%80%BA%E5%88%B8"))()
+        end
+    })
             OftenTab:Button({
         Title = "SANSHUB",
         Desc = "中文 要解卡",
         Callback = function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/DeadRails", true))()
         end
+    
+    local InkgameTab = Window:Tab({
+        Title = "墨水游戏",
+        Icon = "zap",
+        Locked = false,
     })
+    
+            InkgameTab:Button({
+        Title = "AX",
+        Desc = "英文 好用",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/TexRBLX/Roblox-stuff/refs/heads/main/ink-game/script.lua"))()
+        end
+    
+            InkgameTab:Button({
+        Title = "LT",
+        Desc = "英文 好用",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/The-Strongest-Battlegrounds-NSExpression-v2-a3-TSBG-20252"))()
+        end
+    
+            InkgameTab:Button({
+        Title = "AX",
+        Desc = "中文 易封 可以当英文翻译",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/墨水游戏.lua"))()
+        end
     
     local OtherTab = Window:Tab({
         Title = "其他脚本中心",
