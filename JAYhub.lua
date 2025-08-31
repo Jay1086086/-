@@ -42,7 +42,7 @@ function createMainWindow()
         },
         SideBarWidth = 200,
         ScrollBarEnabled = true,
-        Background = "rbxassetid://121541258461281"
+        Background = "rbxassetid://119277358253540"
     })
     
     local TimeTag = Window:Tag({
@@ -563,7 +563,7 @@ function createMainWindow()
     
     local NightTab = Window:Tab({
         Title = "在森林中生存99夜",
-        Icon = "zap",
+        Icon = "map-pin",
         Locked = false,
     })
     
@@ -697,7 +697,7 @@ function createMainWindow()
     
     local DoorTab = Window:Tab({
         Title = "doors",
-        Icon = "pull-door",
+        Icon = "zap",
         Locked = false,
     })
 
