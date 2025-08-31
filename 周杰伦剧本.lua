@@ -269,89 +269,31 @@ function createMainWindow()
         end
     })
 
-    GeneralTab:Toggle({
-        Title = "别人可听",
-        Desc = "xp",
-        Locked = false,
-        Callback = function(state)
-            if state then
-                loadstring(game:HttpGet("https://rawscripts.net/raw/Brookhaven-RP-Audio-Player-Script-Brookhaven-RP-33531", true))()
-        end
-    })
-
-    GeneralTab:Toggle({
-        Title = "隐身",
-        Desc = "xp",
-        Locked = false,
-        Callback = function(state)
-            if state then
-                loadstring(game:HttpGet("https://pastebin.com/raw/vP6CrQJj", true))()
-        end
-    })
-
-    GeneralTab:Toggle({
-        Title = "蜘蛛侠",
-        Desc = "xp",
-        Locked = false,
-        Callback = function(state)
-            if state then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/%E8%9C%98%E8%9B%9B%E4%BE%A0.txt", true))()
-            end
-        end
-    })
-
-    GeneralTab:Toggle({
-        Title = "拥抱",
-        Desc = "xp",
-        Locked = false,
-        Callback = function(state)
-            if state then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/Animations/refs/heads/main/Front%20and%20Back%20Hug%20Tool", true))()
-            end
-        end
-    })
-
-    GeneralTab:Toggle({
-        Title = "隐身2",
-        Desc = "xp",
-        Locked = false,
-        Callback = function(state)
-            if state then
-                loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf", true))()
-            end
-        end
-    })
-
-    GeneralTab:Toggle({
-        Title = "失重",
-        Desc = "xp",
-        Locked = false,
-        Callback = function(state)
-            if state then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Rawbr10/Roblox-Scripts/refs/heads/main/0%20Graviy%20Trip%20Universal", true))()
-            end
-        end
-    })
-
-    General:Toggle({
-        Title = "跳墙",
-        Desc = "xp",
-        Locked = false,
-        Callback = function(state)
-            if state then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script", true))()
-            end
-        end
-    })
-
-    GeneralTab:Toggle({
+        GeneralTab:Button({
         Title = "前后空翻",
-        Desc = "xp",
-        Locked = false,
-        Callback = function(state)
-            if state then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/%E6%97%8B%E8%BD%AC.txt", true))()
-            end
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/%E6%97%8B%E8%BD%AC.txt", true))()
+        end
+    })
+    
+        GeneralTab:Button({
+        Title = "跳墙",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script", true))()
+        end
+    })
+    
+        GeneralTab:Button({
+        Title = "隐身",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/vP6CrQJj", true))()
+        end
+    })
+    
+        GeneralTab:Button({
+        Title = "隐身2",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf", true))()
         end
     })
 
