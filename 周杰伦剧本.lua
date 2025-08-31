@@ -1,4 +1,4 @@
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingyan777/roblox/refs/heads/main/main.lua"))()
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 -- 添加欢迎弹窗
 WindUI:Popup({
@@ -90,15 +90,14 @@ function createMainWindow()
     -- 添加彩虹边框效果
     Window:EditOpenButton({
         StrokeColor = ColorSequence.new({
-        ColorSequenceKeypoint.new(0, Color3.fromHex("FF0000")),
-        ColorSequenceKeypoint.new(0.16, Color3.fromHex("FF7F00")),
-        ColorSequenceKeypoint.new(0.33, Color3.fromHex("FFFF00")),
-        ColorSequenceKeypoint.new(0.5, Color3.fromHex("00FF00")),
-        ColorSequenceKeypoint.new(0.66, Color3.fromHex("0000FF")),
-        ColorSequenceKeypoint.new(0.83, Color3.fromHex("4B0082")),
-        ColorSequenceKeypoint.new(1, Color3.fromHex("940
+            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),     -- 红色
+            ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 165, 0)), -- 橙色
+            ColorSequenceKeypoint.new(0.4, Color3.fromRGB(255, 255, 0)), -- 黄色
+            ColorSequenceKeypoint.new(0.6, Color3.fromRGB(0, 255, 0)),   -- 绿色
+            ColorSequenceKeypoint.new(0.8, Color3.fromRGB(0, 0, 255)),   -- 蓝色
+            ColorSequenceKeypoint.new(1, Color3.fromRGB(128, 0, 128))    -- 紫色
         }),
-        StrokeThickness = 2,  -- 增加边框厚度
+        StrokeThickness = 3,  -- 增加边框厚度
     })
     
     local MainTab = Window:Tab({
@@ -243,9 +242,9 @@ function createMainWindow()
     })
 
     GeneralTab:Button({
-        Title = "飞行v3",
+        Title = "肘击",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay907692/Jay/8b94c47bd5969608438fa1ee57f34b1350789caa/飞行脚本", true))()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/0Ben1/fe/main/obf_5wpM7bBcOPspmX7lQ3m75SrYNWqxZ858ai3tJdEAId6jSI05IOUB224FQ0VSAswH.lua.txt', true))()
         end
     })
 
