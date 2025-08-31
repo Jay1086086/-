@@ -1,4 +1,5 @@
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay1086086/-/8b5e058310d12179309f3d9b80787fd3f5978207/main-2.lua", true))()
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay1086086/-/8b5e058310d12179309f3d9b80787fd3f5978207/main-2.lua"))()
+
 
 -- 添加欢迎弹窗
 WindUI:Popup({
@@ -108,7 +109,7 @@ function createMainWindow()
     
     MainTab:Paragraph({
         Title = "欢迎使用JAYhub",
-        Desc = "QQ群1049557594",
+        Desc = "QQ群917813",
         Image = "rbxassetid://128052899764125",
         ImageSize = 42,
         Thumbnail = "rbxassetid://98991054648205",
