@@ -265,11 +265,138 @@ function createMainWindow()
     })
 
     GeneralTab:Button({
-        Title = "查看别人物品栏",
+        Title = "透视",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E7%9C%8B%E7%89%A9%E5%93%81%E6%A0%8F.txt", true))()
+                   local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        
+        local highlight = Instance.new("Highlight")
+        highlight.Name = "Highlight"
+        highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop -- 保证透视高亮始终可见
+
+        -- 为已有玩家添加透视和小尺寸名字
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= game.Players.LocalPlayer then
+                repeat task.wait() until player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+                local humanoidRootPart = player.Character.HumanoidRootPart
+                
+                -- 添加/维护透视高亮
+                if not humanoidRootPart:FindFirstChild("Highlight") then
+                    local highlightClone = highlight:Clone()
+                    highlightClone.Adornee = player.Character
+                    highlightClone.Parent = humanoidRootPart
+                end
+
+                if not humanoidRootPart:FindFirstChild("PlayerNameDisplay") then
+                    local billboardGui = Instance.new("BillboardGui")
+                    billboardGui.Name = "PlayerNameDisplay"
+                    billboardGui.Adornee = humanoidRootPart
+                    billboardGui.Size = UDim2.new(0, 150, 0, 20)
+                    billboardGui.StudsOffset = Vector3.new(0, 2.8, 0)
+                    billboardGui.AlwaysOnTop = true
+
+                    local textLabel = Instance.new("TextLabel")
+                    textLabel.Parent = billboardGui
+                    textLabel.Size = UDim2.new(1, 0, 1, 0)
+                    textLabel.BackgroundTransparency = 1
+                    textLabel.Text = player.Name
+                    textLabel.TextColor3 = Color3.new(1, 1, 1)
+                    textLabel.TextSize = 9
+                    textLabel.TextScaled = false
+
+                    billboardGui.Parent = humanoidRootPart
+                end
+            end
         end
-    })
+
+        -- 新玩家加入时添加透视和名字
+        game.Players.PlayerAdded:Connect(function(player)
+            player.CharacterAdded:Connect(function(character)
+                repeat task.wait() until character:FindFirstChild("HumanoidRootPart")
+                local humanoidRootPart = character.HumanoidRootPart
+                
+                -- 透视高亮
+                if not humanoidRootPart:FindFirstChild("Highlight") then
+                    local highlightClone = highlight:Clone()
+                    highlightClone.Adornee = character
+                    highlightClone.Parent = humanoidRootPart
+                end
+
+                -- 小尺寸名字
+                local billboardGui = Instance.new("BillboardGui")
+                billboardGui.Name = "PlayerNameDisplay"
+                billboardGui.Adornee = humanoidRootPart
+                billboardGui.Size = UDim2.new(0, 150, 0, 20)
+                billboardGui.StudsOffset = Vector3.new(0, 2.8, 0)
+                billboardGui.AlwaysOnTop = true
+
+                local textLabel = Instance.new("TextLabel")
+                textLabel.Parent = billboardGui
+                textLabel.Size = UDim2.new(1, 0, 1, 0)
+                textLabel.BackgroundTransparency = 1
+                textLabel.Text = player.Name
+                textLabel.TextColor3 = Color3.new(1, 1, 1)
+                textLabel.TextSize = 9 -- 名字缩小到9
+                textLabel.TextScaled = false
+
+                billboardGui.Parent = humanoidRootPart
+            end)
+        end)
+
+        -- 玩家离开时清理资源
+        game.Players.PlayerRemoving:Connect(function(player)
+            if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                local humanoidRootPart = player.Character.HumanoidRootPart
+                if humanoidRootPart:FindFirstChild("Highlight") then
+                    humanoidRootPart.Highlight:Destroy()
+                end
+                if humanoidRootPart:FindFirstChild("PlayerNameDisplay") then
+                    humanoidRootPart.PlayerNameDisplay:Destroy()
+                end
+            end
+        end)
+
+        -- 每帧维护透视和名字显示
+        RunService.Heartbeat:Connect(function()
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= game.Players.LocalPlayer and player.Character then
+                    local humanoidRootPart = player.Character:FindFirstChild("HumanoidRootPart")
+                    if humanoidRootPart then
+                        -- 维护透视
+                        if not humanoidRootPart:FindFirstChild("Highlight") then
+                            local highlightClone = highlight:Clone()
+                            highlightClone.Adornee = player.Character
+                            highlightClone.Parent = humanoidRootPart
+                            task.wait()
+                        end
+
+                        -- 维护小尺寸名字
+                        if not humanoidRootPart:FindFirstChild("PlayerNameDisplay") then
+                            local billboardGui = Instance.new("BillboardGui")
+                            billboardGui.Name = "PlayerNameDisplay"
+                            billboardGui.Adornee = humanoidRootPart
+                            billboardGui.Size = UDim2.new(0, 150, 0, 20)
+                            billboardGui.StudsOffset = Vector3.new(0, 2.8, 0)
+                            billboardGui.AlwaysOnTop = true
+
+                            local textLabel = Instance.new("TextLabel")
+                            textLabel.Parent = billboardGui
+                            textLabel.Size = UDim2.new(1, 0, 1, 0)
+                            textLabel.BackgroundTransparency = 1
+                            textLabel.Text = player.Name
+                            textLabel.TextColor3 = Color3.new(1, 1, 1)
+                            textLabel.TextSize = 9 -- 名字缩小到9
+                            textLabel.TextScaled = false
+
+                            billboardGui.Parent = humanoidRootPart
+                            task.wait()
+                        end
+                    end
+                end
+            end
+        end)
+    end
+})
 
         GeneralTab:Button({
         Title = "前后空翻",
@@ -278,10 +405,11 @@ function createMainWindow()
         end
     })
     
-        GeneralTab:Button({
-        Title = "跳墙",
+        GeneralTab:Toggle({
+        Title = "爬墙",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20WallHop%20V4%20script", true))()
+            loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+            end
         end
     })
     
@@ -293,9 +421,9 @@ function createMainWindow()
     })
     
         GeneralTab:Button({
-        Title = "隐身2",
+        Title = "无限跳",
         Callback = function()
-            loadstring(game:HttpGet("https://pastebin.com/raw/3Rnd9rHf", true))()
+            loadstring(game:HttpGet("https://pastebin.com/raw/V5PQy3y0", true))()
         end
     })
 
@@ -384,6 +512,140 @@ function createMainWindow()
         Desc = "中文 易封 可以当英文翻译",
         Callback = function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Xingtaiduan/Script/refs/heads/main/Games/墨水游戏.lua"))()
+        end
+    })
+    
+    local NightTab = Window:Tab({
+        Title = "在森林中生存99夜",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+            NightTab:Button({
+        Title = "二狗子",
+        Desc = "中文 配合飞行挺好玩",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/shenqin/refs/heads/main/99day.lua"))()
+        end
+    })
+    
+            NightTab:Button({
+        Title = "LT",
+        Desc = "中文",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/hdjsjjdgrhj/script-hub/refs/heads/main/99Nights"))()
+        end
+    })
+    
+            NightTab:Button({
+        Title = "国外最强99夜",
+        Desc = "英文 要解卡",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/OverflowBGSI/Overflow/refs/heads/main/loader.txt"))()
+        end
+    })
+    
+    local ZombiTab = Window:Tab({
+        Title = "G&B",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+            ZombiTab:Button({
+        Title = "老味精",
+        Desc = "中文",
+        Callback = function()
+            loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\97\112\112\47\65\51\78\113\122\52\78\112\47\114\97\119"))()
+        end
+    })
+    
+            ZombiTab:Button({
+        Title = "星火交辉G&B",
+        Desc = "中文",
+        Callback = function()
+            local SCC_CharPool={[1]= tostring(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,112,97,115,116,101,98,105,110,46,99,111,109,47,114,97,119,47,51,55,116,67,82,116,117,109})end)()))}
+        end
+    })
+    
+            ZombiTab:Button({
+        Title = "情云",
+        Desc = "中文",
+        Callback = function()
+            loadstring(utf8.char((function() return table.unpack({108,111,97,100,115,116,114,105,110,103,40,103,97,109,101,58,72,116,116,112,71,101,116,40,34,104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,67,104,105,110,97,81,89,47,45,47,109,97,105,110,47,37,69,54,37,56,51,37,56,53,37,69,52,37,66,65,37,57,49,34,41,41,40,41})end)()))()
+        end
+    })
+    
+    local AbandTab = Window:Tab({
+        Title = "被遗弃",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+    AbandTab:Button({
+        Title = "不知名被遗弃",
+        Desc = "不知道",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/nikoladhima/Forsaken-Hub/refs/heads/main/ForsakenHub-Script.lua"))()
+        end
+    })
+    
+    AbandTab:Button({
+        Title = "还是不知名",
+        Desc = "不知道",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Redexe19/RXGUIV1/refs/heads/main/RX%20Forsaken/RX_Forsakened"))()
+        end
+    })
+    
+    AbandTab:Button({
+        Title = "情云",
+        Desc = "中文 简洁好用",
+        Callback = function()
+            loadstring(utf8.char((function() return table.unpack({108,111,97,100,115,116,114,105,110,103,40,103,97,109,101,58,72,116,116,112,71,101,116,40,34,104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,67,104,105,110,97,81,89,47,45,47,109,97,105,110,47,37,69,54,37,56,51,37,56,53,37,69,52,37,66,65,37,57,49,34,41,41,40,41})end)()))()
+        end
+    })
+    
+    local NatureTab = Window:Tab({
+        Title = "自然灾害",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+    NatureTab:Button({
+        Title = "黑洞v6",
+        Desc = "英文 推荐搭配飞行使用",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Super-ring-Parts-V6-28581"))()
+        end
+    })
+    
+    NatureTab:Button({
+        Title = "油管制作",
+        Desc = "英文",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8", true))()
+        end
+    })
+    
+    local StornTab = Window:Tab({
+        Title = "最强战场",
+        Icon = "zap",
+        Locked = false,
+    })
+    
+    StornTab:Button({
+        Title = "自动格挡自瞄",
+        Desc = "英文",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Cyborg883/TSB/refs/heads/main/CombatGui"))()
+        end
+    })
+    
+    StornTab:Button({
+        Title = "无限侧闪",
+        Desc = "英文 看不懂全开就行",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/10tempest01/tempest-hub/refs/heads/main/Launcher.lua"))()
         end
     })
     
