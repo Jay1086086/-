@@ -48,7 +48,7 @@ function createMainWindow()
     
     -- 创建时间标签
     local TimeTag = Window:Tag({
-        Title = "北京时间00:00",
+        Title = "00:00",
         Color = Color3.fromHex("#30ff6a")
     })
     
@@ -256,9 +256,9 @@ function createMainWindow()
     })
 
     GeneralTab:Button({
-        Title = "vapev4",
+        Title = "飞行v3",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+           loadstring(game:HttpGet("https://raw.githubusercontent.com/Jay907692/Jay/8b94c47bd5969608438fa1ee57f34b1350789caa/飞行脚本", true))()
         end
     })
 
